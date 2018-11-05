@@ -12,6 +12,7 @@ interface NetworkService {
     ) : retrofit2.Call<PostUserScheduleResponse>
 
     //할메이트 찾기 필터링 하기
+    //브랜치 생성한다
     @POST("halmae/filter")
     fun postHalmateFitering(
             @Body filter : FilteringRequestBody
