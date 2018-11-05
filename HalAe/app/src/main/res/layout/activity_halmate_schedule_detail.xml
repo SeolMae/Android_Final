@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="삭제"
+            android:textSize="18dp"
+            android:textColor="#606060"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#B8B8B8"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+
+        <ImageView
+            android:id="@+id/volunteer_name_icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:src="@drawable/halmate_schedule_person"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="양시연"
+            android:textSize="16dp"
+            android:textColor="#606060"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/volunteer_name_icon"
+            android:layout_marginLeft="17dp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#707070"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="24dp">
+
+            <ImageView
+                android:id="@+id/volunteer_time_icon"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/halmate_schedule_clock"/>
+
+            <TextView
+                android:id="@+id/volunteer_start_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시작"
+                android:textSize="16dp"
+                android:textColor="#606060"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/volunteer_time_icon"
+                android:layout_marginLeft="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/volunteer_start_text"
+                android:layout_marginLeft="25dp"
+                android:text="8월 23일 (목) 오전 08:00"
+                android:textSize="16dp"
+                android:textColor="#606060"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/volunteer_empty"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"/>
+
+            <TextView
+                android:id="@+id/volunteer_end_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="종료"
+                android:textSize="16dp"
+                android:textColor="#606060"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/volunteer_empty"
+                android:layout_marginLeft="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/volunteer_end_text"
+                android:layout_marginLeft="25dp"
+                android:text="8월 23일 (목) 오전 08:00"
+                android:textSize="16dp"
+                android:textColor="#606060"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#707070"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+
+        <ImageView
+            android:id="@+id/volunteer_heart_icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:src="@drawable/halmate_schedule_heart"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#독서 #그림그리기"
+            android:textSize="16dp"
+            android:textColor="#606060"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/volunteer_heart_icon"
+            android:layout_marginLeft="17dp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#707070"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+
+        <ImageView
+            android:id="@+id/volunteer_plan_icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:src="@drawable/halmate_schedule_write"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="'누가 내 머리에 똥 쌌어?'라는 책을 읽고
+느낀점을 그림으로 그릴 거에요!"
+            android:textSize="16dp"
+            android:textColor="#606060"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/volunteer_plan_icon"
+            android:layout_marginLeft="17dp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#707070"
+        />
+
+
+
+</LinearLayout>
