@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="135dp"
+    android:orientation="vertical"
+    android:layout_marginRight="7dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginBottom="13dp">
+
+    <ImageView
+        android:id="@+id/halmate_search_img"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:src="@drawable/sample"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/halmate_search_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+            android:text="최서정 할머니"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=","
+            android:textSize="11dp"
+            />
+
+        <TextView
+            android:id="@+id/halmate_search_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+            android:text="78"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+            android:text="세"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="116dp"
+        android:layout_height="14dp">
+        <TextView
+            android:id="@+id/halmate_search_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서울특별시 성북구 길음동"
+            android:textSize="10dp"
+            />
+    </RelativeLayout >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp">
+
+        <TextView
+            android:id="@+id/halmate_search_interest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="#사진#그림"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

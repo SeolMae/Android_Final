@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="정렬">
+        <item>마감임박순</item>
+        <item>최신순</item>
+        <item>모금액적은순</item>
+        <item>모금액많은순</item>
+    </string-array>
+</resources>

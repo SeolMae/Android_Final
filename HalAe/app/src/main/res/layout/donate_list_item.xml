@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/danate_item_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="125dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/donate_halmate_img"
+                android:layout_width="134dp"
+                android:layout_height="124dp"
+                android:src="@drawable/sample"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/donate_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고운 할머니는 맥북이 필요해요."
+                android:textSize="14dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/donate_halmate_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고운할머니(76)"
+                android:textSize="12dp"
+                android:textStyle="normal"
+                android:textColor="#706A6A"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/donate_goal_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모금 목표 금액 3,000,000원"
+                android:textSize="12dp"
+                android:textColor="#706A6A"
+                android:textStyle="normal"
+                android:layout_marginLeft="16dp"/>
+            
+            <android.support.v4.widget.ContentLoadingProgressBar
+                android:id="@+id/donate_list_item_progress_bar"
+                style= "@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:progressDrawable="@drawable/progress_bar_custom"
+                android:layout_width="200dp"
+                android:layout_height="9dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="17dp"
+                />
+            
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="11dp">
+
+                <TextView
+                    android:id="@+id/donate_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="42%"
+                    android:textStyle="bold"
+                    android:textColor="#9CE3FF"
+                    android:textSize="10dp"
+                    android:layout_alignParentLeft="true"
+                    />
+
+                <TextView
+                    android:id="@+id/donate_left_days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="종료 6일전"
+                    android:textSize="10dp"
+                    android:textColor="#706A6A"
+                    android:textStyle="normal"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_height="0.5dp"
+        android:background="#606060"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--삭제대상-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="100dp"
+        android:layout_height="30dp">
+
+        <!--<TextView-->
+            <!--android:id="@+id/search_spinner_interest_text"-->
+            <!--android:layout_width="48dp"-->
+            <!--android:layout_height="19dp"-->
+            <!--android:textSize="13dp"-->
+            <!--android:text="관심분야"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--/>-->
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/donate_triangle"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/search_spinner_interest_text"
+            android:layout_marginLeft="30dp"/>
+
+
+    </RelativeLayout>
+</selector>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="관심분야">
+        <item>관심분야</item>
+        <item>춤추기</item>
+        <item>노래부르기</item>
+        <item>독서</item>
+        <item>사진</item>
+    </string-array>
+</resources>

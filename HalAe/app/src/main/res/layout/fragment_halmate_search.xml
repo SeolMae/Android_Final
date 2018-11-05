@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    //타이틀바
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="5dp"
+        android:background="@android:color/white"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="할메이트 찾기"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/search_search_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/search_search"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나와 맞는 할메이트를 찾아보세요!"
+            android:textSize="13dp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:background="@drawable/halmate_search_filter_background">
+
+            <Spinner
+                android:id="@+id/search_spinner_location"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+
+                android:spinnerMode="dropdown"
+                android:entries="@array/위치"
+                />
+            <Spinner
+                android:id="@+id/search_spinner_gender"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:spinnerMode="dropdown"
+                android:entries="@array/성별"
+                />
+            <Spinner
+                android:id="@+id/search_spinner_interest"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:spinnerMode="dropdown"
+                android:entries="@array/관심분야"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_gravity="center"
+        android:id="@+id/halmate_search_list"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

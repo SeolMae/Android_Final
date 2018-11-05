@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/edittext_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="5dp"
+        android:background="@android:color/white" >
+
+        <RelativeLayout
+            android:id="@+id/searching_word_layout"
+            android:layout_width="320dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:background="@drawable/searching_view_background">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/search_search"
+                android:layout_centerVertical= "true"
+                android:layout_marginLeft="13dp"/>
+
+            <EditText
+                android:id="@+id/searching_edittext"
+                android:layout_width="300dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:textSize="14dp"
+                android:hint="검색"
+                android:background="@android:color/transparent"
+                />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/searching_cancle_button"
+            android:layout_width="26dp"
+            android:layout_height="20dp"
+            android:text="취소"
+            android:background="@android:color/transparent"
+            android:textSize="14dp"
+            android:textColor="#606060"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittext_top_layout"
+        android:layout_marginTop="161dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색 기록이 없습니다."
+            android:textStyle="normal"
+            android:textColor="#7D7D7D"
+            android:textSize="14dp"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#606060"/>
+
+
+        <Button
+            android:id="@+id/record_delete_button"
+            android:layout_width="72dp"
+            android:layout_height="18dp"
+            android:background="@android:color/transparent"
+            android:text="검색기록 삭제"
+            android:textSize="12dp"
+            android:textColor="#5C5C5C"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="7dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

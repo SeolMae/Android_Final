@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="위치">
+        <item>위치</item>
+        <item>경기도 양평군 양평읍</item>
+        <item>서울특별시 성북구 길음동</item>
+        <item>인천광역시 부평구 상곡동</item>
+        <item>서울특별시 중구 신당동</item>
+    </string-array>
+</resources>

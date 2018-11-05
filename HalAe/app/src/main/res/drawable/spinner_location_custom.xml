@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--삭제대상-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp">
+
+    <ImageView
+        android:id="@+id/location_img"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/search_location"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        />
+
+    <!--<TextView-->
+        <!--android:id="@+id/search_spinner_location_text"-->
+        <!--android:layout_width="24dp"-->
+        <!--android:layout_height="19dp"-->
+        <!--android:textSize="13dp"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_toRightOf="@+id/location_img"-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--/>-->
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/donate_triangle"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/search_spinner_location_text"
+        android:layout_marginLeft="35dp"/>
+
+
+</RelativeLayout>
+</selector>

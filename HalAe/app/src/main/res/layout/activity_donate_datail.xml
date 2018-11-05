@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DonateDatailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        //타이틀바
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:elevation="5dp"
+            android:background="@android:color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="기부하기"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/detail_background_layout"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/sample"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/donate_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고운 할머니의 노트북에는\n되는 기능이 몇가지 없습니다."
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
+                />
+
+            <TextView
+                android:id="@+id/donate_halmate_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고운 할머니(76)"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_horizontal"/>
+
+            <RelativeLayout
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_marginTop="27dp">
+                <TextView
+                    android:id="@+id/donate_goal_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3,000,000원 목표"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="normal"
+                    android:layout_alignParentRight="true"/>
+
+
+            </RelativeLayout>
+            
+            <android.support.v4.widget.ContentLoadingProgressBar
+                android:id="@+id/donate_progress_bar"
+                style= "@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:progressDrawable="@drawable/progress_bar_custom"
+                android:layout_width="340dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <RelativeLayout
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/donate_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="42%"
+                    android:textStyle="normal"
+                    android:textSize="10dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/donate_now_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1,260,000원"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp"
+                    android:textStyle="normal"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/donate_left_days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="종료 6일전"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp"
+                    android:textStyle="normal"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="262dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="aefwafwa\naefwafwa\naefwafwa\naefwafwa\naefwafwa\naefwafwa\naefwafwa\naefwafwa\naefwafwa\naefwafwa\naefwafwa\n"
+                android:textStyle="normal"
+                android:textSize="11dp"
+                android:textColor="#000000"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모금 정보"
+                android:textColor="#000000"
+                android:textSize="11dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모금 시작 날짜 : 2018년 8월 1일"
+                android:textColor="#000000"
+                android:textSize="11dp"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모금 종료 날짜 : 2018년 8월 31일"
+                android:textColor="#000000"
+                android:textSize="11dp"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="목표 금액 : 3,000,000원"
+                android:textColor="#000000"
+                android:textSize="11dp"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+        
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/donate_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#9CE3FF"
+                android:text="기부하기"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_alignParentBottom="true"/>
+            
+        </RelativeLayout>
+
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>
