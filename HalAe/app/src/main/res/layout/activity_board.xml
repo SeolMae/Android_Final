@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f6f6f6"
+    tools:context=".BoardActivity">
+
+    <RelativeLayout
+        android:background="#ffffff"
+        android:id="@+id/title_Board"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:textSize="20dp"
+            android:textColor="#606060"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="활동 게시판"/>
+        <ImageButton
+            android:id="@+id/board_searchBtn"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/title_Board"
+        android:id="@+id/board_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+    <ImageButton
+        android:id="@+id/board_addPost"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

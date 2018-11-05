@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    android:orientation="vertical"
+    tools:context=".MypageActivity">
+
+    <RelativeLayout
+        android:elevation="2dp"
+        android:background="#ffffff"
+        android:id="@+id/title_Mypage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#606060"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마이페이지"/>
+        <ImageButton
+            android:id="@+id/mypage_settingBtn"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mypage_userInfo"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/mypage_userImg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp" />
+        <TextView
+            android:id="@+id/mypage_userName"
+            android:layout_toRightOf="@+id/mypage_userImg"
+            android:text="최고운"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageButton
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <RelativeLayout
+            android:id="@+id/mypage_Halmate"
+            android:background="#ffffff"
+            android:layout_width="96dp"
+            android:layout_height="80dp">
+            <ImageView
+                android:id="@+id/halmateIMG"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/halmateIMG"
+                android:textSize="12dp"
+                android:layout_centerHorizontal="true"
+                android:text="내 할메이트"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_alignParentRight="true"
+                android:background="#f6f6f6"
+                android:layout_width="1dp"
+                android:layout_height="80dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mypage_BolTime"
+            android:background="#ffffff"
+            android:layout_width="96dp"
+            android:layout_height="80dp">
+            <ImageView
+                android:id="@+id/boltimeIMG"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/boltimeIMG"
+                android:textSize="12dp"
+                android:layout_centerHorizontal="true"
+                android:text="내 봉사시간"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_alignParentRight="true"
+                android:background="#f6f6f6"
+                android:layout_width="1dp"
+                android:layout_height="80dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mypage_myDonate"
+            android:background="#ffffff"
+            android:layout_width="96dp"
+            android:layout_height="80dp">
+            <ImageView
+                android:id="@+id/doIMG"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/doIMG"
+                android:textSize="12dp"
+                android:layout_centerHorizontal="true"
+                android:text="내 기부내역"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_alignParentRight="true"
+                android:background="#f6f6f6"
+                android:layout_width="1dp"
+                android:layout_height="80dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mypage_myActivity"
+            android:background="#ffffff"
+            android:layout_width="96dp"
+            android:layout_height="80dp">
+            <ImageView
+                android:id="@+id/myactIMG"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/myactIMG"
+                android:textSize="12dp"
+                android:layout_centerHorizontal="true"
+                android:text="내 활동내역"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mypage_BolCerti"
+        android:layout_marginTop="30dp"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <TextView
+            android:textSize="16dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="봉사 인증하기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

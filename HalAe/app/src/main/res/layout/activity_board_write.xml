@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#f6f6f6"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BoardWriteActivity">
+
+    <RelativeLayout
+        android:elevation="2dp"
+        android:background="#ffffff"
+        android:id="@+id/title_board_write"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#606060"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="활동글 작성"/>
+        <Button
+            android:textSize="16dp"
+            android:text="등록"
+            android:textColor="#9ce3ff"
+            android:id="@+id/boardwrite_add"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginBottom="5dp"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/halSelect"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="16dp"
+            android:layout_centerVertical="true"
+            android:textColor="#606060"
+            android:text="할메이트 선택"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/spinner_hal"
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/halSelect"
+            android:layout_width="250dp"
+            android:layout_height="30dp"></Spinner>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        <EditText
+            android:id="@+id/boardwrite_title"
+            android:hint="제목"
+            android:textColorHint="#606060"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <View
+            android:background="#606060"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <EditText
+            android:id="@+id/boardwrite_content"
+            android:textColorHint="#c2c2c2"
+            android:hint="본문에서 #을 이용하여 태그를 사용해보세요!"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+</LinearLayout>
