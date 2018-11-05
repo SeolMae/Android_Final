@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp">
+
+        <TextView
+            android:id="@+id/group_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="그룹 소개"
+            android:textSize="13dp"
+            android:textColor="#606060"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:text="저희 그룹은 주로 할머니와 반주를 자주 하며, 할머니와 유튜브
+영상을 찍어 업로드해요! 술 좋아하시는 관종 여러분들 함께해요~"
+            android:textSize="12dp"
+            android:textColor="#606060"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/group_title_text"
+            android:layout_marginTop="3dp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#707070"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="221dp">
+
+        <TextView
+            android:id="@+id/group_member_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="구성원"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:textColor="#606060"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"/>
+
+
+        <GridLayout
+            android:layout_below="@+id/group_member_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="18dp"
+            android:columnCount="4">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/halmate_group_list">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </GridLayout>
+
+        <RelativeLayout
+            android:layout_below="@+id/group_member_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:columnCount="4">
+
+                //1
+                <RelativeLayout
+                    android:visibility="invisible"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/halmate_group_person"/>
+
+                    <ImageView
+                        android:layout_width="27.45dp"
+                        android:layout_height="27.45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/halmate_group_on"/>
+
+                </RelativeLayout>
+
+                //2
+                <RelativeLayout
+                    android:visibility="invisible"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/halmate_group_person"/>
+
+                    <ImageView
+                        android:layout_width="27.45dp"
+                        android:layout_height="27.45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/halmate_group_on"/>
+
+                </RelativeLayout>
+
+                //3
+                <RelativeLayout
+                    android:visibility="invisible"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/halmate_group_person"/>
+
+                    <ImageView
+                        android:layout_width="27.45dp"
+                        android:layout_height="27.45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/halmate_group_on"/>
+
+                </RelativeLayout>
+
+                //4
+                <RelativeLayout
+                    android:visibility="invisible"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/halmate_group_person"/>
+
+                    <ImageView
+                        android:layout_width="27.45dp"
+                        android:layout_height="27.45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/halmate_group_on"/>
+
+                </RelativeLayout>
+
+                //5
+                <RelativeLayout
+                    android:id="@+id/group_add5"
+                    android:visibility="visible"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/halmate_group_person"/>
+
+                    <ImageView
+                        android:layout_width="27.45dp"
+                        android:layout_height="27.45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/halmate_group_on"/>
+
+                </RelativeLayout>
+
+                //6
+                <RelativeLayout
+                    android:visibility="invisible"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/halmate_group_person"/>
+
+                    <ImageView
+                        android:layout_width="27.45dp"
+                        android:layout_height="27.45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/halmate_group_on"/>
+
+                </RelativeLayout>
+
+                //7
+                <RelativeLayout
+                    android:visibility="invisible"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/halmate_group_person"/>
+
+                    <ImageView
+                        android:layout_width="27.45dp"
+                        android:layout_height="27.45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/halmate_group_on"/>
+
+                </RelativeLayout>
+
+
+            </GridLayout>
+            <ImageView
+                android:layout_width="42.26dp"
+                android:layout_height="42.27dp"
+                android:layout_marginLeft="7dp"
+                android:src="@drawable/halmate_group_crown"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

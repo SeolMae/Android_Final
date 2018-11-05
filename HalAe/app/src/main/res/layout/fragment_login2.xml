@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_above="@+id/login_next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/login_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그인"
+                android:textStyle="bold"
+                android:textColor="#606060"
+                android:textSize="20dp"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="15dp">
+
+            <View
+                android:id="@+id/login_progress_bar1"
+                android:layout_toLeftOf="@+id/login_progress2"
+                android:layout_centerVertical="true"
+                android:layout_width="27dp"
+                android:layout_height="2dp"
+                android:background="#9CE3FF"/>
+            <View
+                android:id="@+id/login_progress_bar2"
+                android:layout_toRightOf="@+id/login_progress2"
+                android:layout_centerVertical="true"
+                android:layout_width="27dp"
+                android:layout_height="2dp"
+                android:background="#EAEAEA"/>
+
+            <ImageView
+                android:layout_toLeftOf="@id/login_progress_bar1"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/login_completed"/>
+            <ImageView
+                android:id="@+id/login_progress2"
+                android:layout_centerInParent="true"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/login_completed"/>
+            <ImageView
+                android:layout_toRightOf="@+id/login_progress_bar2"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/login_uncompleted"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:layout_marginTop="23dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. 위치정보 입력"
+                android:textSize="18dp"
+                android:textColor="#606060"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="10dp">
+
+            <RelativeLayout
+                android:layout_toLeftOf="@+id/login_address_search_area"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/address_edit"
+                android:layout_marginRight="10dp">
+
+                <EditText
+                    android:id="@+id/login_address_keyword"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@android:color/transparent"
+                    android:hint="예) 할애동12-3 또는 할애아파트"
+                    android:layout_centerVertical="true"
+                    android:textColorHint="#ACACAC"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="15dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/login_address_search_area"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/address_search_btn">
+
+                <ImageView
+                    android:id="@+id/login_address_search_icon"
+                    android:src="@drawable/login_search"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/login_location_gps"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/address_search_btn">
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/login_gps_text"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/login_gps"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/login_gps_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="현 위치로 주소 설정"
+                android:textColor="#606060"
+                android:textSize="16dp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="#9CE3FF"
+        android:text="다음으로"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
