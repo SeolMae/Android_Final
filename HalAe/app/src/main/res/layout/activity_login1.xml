@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".Login1Activity">
+
+    <RelativeLayout
+        android:elevation="2dp"
+        android:background="#ffffff"
+        android:id="@+id/title_login1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageButton
+            android:id="@+id/login1_back"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#606060"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/login1_set"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/title_login1"
+        android:layout_width="50dp"
+        android:layout_height="15dp" />
+
+    <TextView
+        android:id="@+id/login1_set2"
+        android:textSize="18dp"
+        android:textColor="#606060"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/login1_set"
+        android:text="1.기본정보 입력"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/login1_set3"
+        android:textSize="16dp"
+        android:textColor="#606060"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/login1_set2"
+        android:text="성별"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/login1_sex"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/login1_set3"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+        <ImageButton
+            android:layout_marginRight="20dp"
+            android:id="@+id/login1_man"
+            android:layout_width="120dp"
+            android:layout_height="40dp" />
+
+        <ImageButton
+            android:id="@+id/login1_woman"
+            android:layout_width="120dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/login1_set4"
+        android:layout_marginLeft="65dp"
+        android:textSize="16dp"
+        android:textColor="#606060"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/login1_sex"
+        android:text="이름"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:background="#f7f7f7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/login1_name"
+        android:layout_below="@+id/login1_set4"
+        android:layout_width="260dp"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/login1_set5"
+        android:layout_marginLeft="65dp"
+        android:textSize="16dp"
+        android:textColor="#606060"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/login1_name"
+        android:text="핸드폰 번호"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:background="#f7f7f7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/login1_nubmer"
+        android:layout_below="@+id/login1_set5"
+        android:layout_width="260dp"
+        android:layout_height="40dp" />
+
+    <Button
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:text="다음으로"
+        android:background="#9ce3ff"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</RelativeLayout>

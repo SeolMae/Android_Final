@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".BoardDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_Board"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:textSize="20dp"
+            android:textColor="#606060"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="활동 게시판"/>
+    </RelativeLayout>
+
+    <TextView
+        android:textColor="#000000"
+        android:id="@+id/board_title"
+        android:layout_below="@+id/title_Board"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:text="밥한술 화장실 문짝 달고 왔습니다!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <RelativeLayout
+        android:id="@+id/board_writer"
+        android:layout_below="@id/board_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.widget.CircleImageView
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/post_userImg"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="14dp"
+            android:layout_marginTop="6dp"
+            android:id="@+id/post_userName"
+            android:text="양시연"
+            android:layout_toRightOf="@+id/post_userImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="13dp"
+            android:id="@+id/post_Date"
+            android:layout_alignLeft="@+id/post_userName"
+            android:layout_below="@+id/post_userName"
+            android:text="2018.08.30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_below="@+id/board_writer"
+        android:background="#4a4a4a"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+
+    <ImageView
+        android:id="@+id/board_image"
+        android:layout_below="@+id/line"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="170dp" />
+
+    <TextView
+        android:textColor="#000000"
+        android:id="@+id/board_content"
+        android:layout_below="@id/board_image"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="오늘은 중구 필동에 봉사활동을 다녀왔습니다. 장소는 바로 저의 집과도 같은 밥한술이었습니다. 지난번에 제가 사고 망가뜨린 문짝도 수리하 여러가지 일도 도와드리고 왔어요ㅎㅎ 봉사 이후 진행된 뒷풀이도 역시 밥한술. "
+        android:textSize="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:background="#dfd5d5"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+
+    <ImageButton
+        android:id="@+id/board_bookmark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="100dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+    <ImageButton
+        android:id="@+id/board_comment"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="60dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+    <ImageButton
+        android:id="@+id/board_share"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+</RelativeLayout>
