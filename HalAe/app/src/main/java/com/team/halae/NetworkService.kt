@@ -6,6 +6,30 @@ import retrofit2.http.*
 
 interface NetworkService {
 
+    //---------고운통신부분
+
+    @POST("/auth/register")
+    fun postRegisterUserInfo(
+            @Body postRegisterUserInfo: PostRegisterUserInfo
+    ) : retrofit2.Call<PostRegisterUserInfoResponse>
+
+    @GET("/halmae/{index}")
+    fun getHalmateInformation(
+            @Path("index") index: String
+    ) : retrofit2.Call<HalmateInformationResponse>
+
+    @GET("/halmae/schedule/(할머니인덱스)/{index}")
+    fun getHalmateSchedule(
+            @Path("index") index : String
+    ) : retrofit2.Call<HalmateScheuleInfoResponse>
+
+    //한 할머니 그룹 보기 api 이상해서 패스
+
+
+
+    //---------고운통신부분
+
+
     @POST("auth")
     fun postLogin(
             @Body LoginPost : LoginPost
