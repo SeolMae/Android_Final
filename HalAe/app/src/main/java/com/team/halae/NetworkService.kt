@@ -18,7 +18,7 @@ interface NetworkService {
             @Path("index") index: String
     ) : retrofit2.Call<HalmateInformationResponse>
 
-    @GET("/halmae/schedule/(할머니인덱스)/{index}")
+    @GET("/halmae/schedule/{index}")
     fun getHalmateSchedule(
             @Path("index") index : String
     ) : retrofit2.Call<HalmateScheuleInfoResponse>
