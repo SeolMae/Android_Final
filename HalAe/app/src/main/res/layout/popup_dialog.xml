@@ -20,6 +20,7 @@
             android:layout_height="50dp" />
 
         <ImageButton
+            android:src="@drawable/mypage_autenticate_x"
             android:padding="15dp"
             android:background="#ffffff"
             android:layout_alignRight="@+id/popup_title"

@@ -24,6 +24,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:background="@drawable/mypage_donate_background"
         android:layout_width="match_parent"
         android:layout_height="200dp">
         <TextView
