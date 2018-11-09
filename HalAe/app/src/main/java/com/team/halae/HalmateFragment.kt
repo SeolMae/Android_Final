@@ -3,15 +3,27 @@ package com.team.halae
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
+import com.team.halae.R.id.*
 import kotlinx.android.synthetic.main.fragment_halmate.*
 import kotlinx.android.synthetic.main.fragment_halmate.view.*
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 
 class HalmateFragment : Fragment(), View.OnClickListener {
+
+
+    lateinit var networkService: NetworkService
+    private var requestManager: RequestManager? = null
+
 
     override fun onClick(v: View?) {
         when(v!!){
@@ -57,6 +69,24 @@ class HalmateFragment : Fragment(), View.OnClickListener {
         v.halmate_group_tab.setOnClickListener(this)
 
         addFragment(HalmateScheduleFragment())
+
+        //통신
+        var index = 1
+        networkService = ApplicationController.instance.networkService
+        requestManager = Glide.with(this)
+        var halmateInformationResponse  = networkService.getHalmateInformation(index.toString())
+        halmateInformationResponse.enqueue(object : retrofit2.Callback<HalmateInformationResponse> {
+            override fun onResponse(call: Call<HalmateInformationResponse>?, response: Response<HalmateInformationResponse>?) {
+                if(response!!.isSuccessful){
+                    response.body().result
+                }
+            }
+
+            override fun onFailure(call: Call<HalmateInformationResponse>?, t: Throwable?) {
+                Log.e("통신오류",t.toString())
+            }
+
+        })
 
 //        var scheduleTab : ImageView = v.findViewById(R.id.halmate_schedule_tab)
 //        halmate_schedule_tab.isSelected = true
