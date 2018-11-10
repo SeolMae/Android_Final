@@ -24,10 +24,12 @@
             android:layout_toRightOf="@+id/main_HalIMG"
             android:textSize="20dp"
             android:text="박막례 할머니"
+            android:textColor="#000000"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:textColor="#606060"
             android:id="@+id/main_HalDD"
             android:layout_marginTop="70dp"
             android:layout_marginLeft="50dp"
@@ -37,26 +39,23 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <!--
         <ImageButton
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/main_massage"
             android:background="@android:color/transparent"
             android:id="@+id/main_HalCall"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/main_HalIMG"
             android:layout_below="@+id/main_HalDD"
-            android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <ImageButton
+            android:src="@drawable/main_call"
             android:background="@android:color/transparent"
             android:id="@+id/main_HalMsg"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
             android:layout_toRightOf="@id/main_HalCall"
             android:layout_below="@+id/main_HalDD"
-            android:layout_width="50dp"
-            android:layout_height="50dp" />
-            -->
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
 </LinearLayout>
