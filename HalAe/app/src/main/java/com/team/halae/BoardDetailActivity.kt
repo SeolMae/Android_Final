@@ -40,7 +40,7 @@ class BoardDetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val getBoardDetailResponse = networkService!!.getBoardDetail(board_idx)
+        val getBoardDetailResponse = networkService!!.getBoardDetail(board_idx.toString())
         getBoardDetailResponse.enqueue(object : Callback<BoardDetailResponse>{
             override fun onFailure(call: Call<BoardDetailResponse>?, t: Throwable?) {
                 ApplicationController.instance!!.makeToast("통신 확인")

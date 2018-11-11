@@ -24,8 +24,7 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 class MainActivity : AppCompatActivity() {
-
-    var token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6OTI3MzA0MjIyLCJpYXQiOjE1MzgyOTY3NDMsImV4cCI6MTU0MDg4ODc0M30.KuDpOGzvy4NzQJjUJ0InjdSIdWYmhn10CfCS1QLLBzA"
+    var token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6OTI3MzA0MjIyLCJpYXQiOjE1NDE2Njk4ODYsImV4cCI6MTU0NDI2MTg4Nn0.SD5FN00X_9pTl2SQ8eZov3Hg6CJ5k9VL9WwqYVnVzwA"
     private var networkService: NetworkService? = null
     private var requestManager: RequestManager? = null
 
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         networkService = ApplicationController.instance!!.networkService
 
-        //token = getIntent().getStringExtra("token")
+        token = getIntent().getStringExtra("token")
 
         val getUsrHalResponse = networkService!!.getUsrHalList(token)
         getUsrHalResponse.enqueue(object : Callback<UsrHalListResponse> {
