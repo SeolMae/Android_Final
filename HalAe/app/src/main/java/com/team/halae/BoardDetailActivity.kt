@@ -18,7 +18,7 @@ class BoardDetailActivity : AppCompatActivity() {
 
     var getImage : CircleImageView? = null
 
-    var board_idx: Int = null!!
+    var board_idx : Int? =null
     private var networkService: NetworkService? = null
     private var requestManager: RequestManager? = null
 

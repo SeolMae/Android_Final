@@ -111,6 +111,7 @@
                     android:layout_width="160dp"
                     android:layout_height="100dp" />
                 <TextView
+                    android:width="160dp"
                     android:id="@+id/recommedTitle1"
                     android:textColor="#606060"
                     android:layout_marginLeft="35dp"
@@ -132,7 +133,7 @@
                     android:layout_below="@+id/recommedPic1"
                     android:textSize="13dp"
                     android:text="할머니 염색을 해드렸어요!"
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content" />
             </RelativeLayout>
         </RelativeLayout>
