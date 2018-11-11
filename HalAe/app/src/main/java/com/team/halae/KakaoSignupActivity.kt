@@ -88,6 +88,7 @@ class KakaoSignupActivity : Activity() {
                                 ApplicationController.instance!!.makeToast("로그인 성공")
                                 token = response!!.body().data.token
                                 Log.v("tokentoken", token)
+                                redirectMainActivity() // 로그인 성공시 MainActivity로
                             }
                         }
                     }
@@ -96,7 +97,7 @@ class KakaoSignupActivity : Activity() {
 
                 val kakaoID = userProfile.id.toString() // userProfile에서 ID값을 가져옴
                 val kakaoNickname = userProfile.nickname     // Nickname 값을 가져옴
-                redirectMainActivity() // 로그인 성공시 MainActivity로
+                //redirectMainActivity() // 로그인 성공시 MainActivity로
             }
         })
     }
@@ -104,6 +105,7 @@ class KakaoSignupActivity : Activity() {
     private fun redirectMainActivity() {
         var intent = Intent(this, MainActivity::class.java)
         intent.putExtra("token", token)
+        Log.v("here", token)
         startActivity(intent)
         //startActivity(Intent(this, MainActivity::class.java))
 
