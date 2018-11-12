@@ -40,7 +40,7 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_tab)
         addFragment(HalmateFragment())
         main_home_tab.isSelected = true
         main_home_tab.setOnClickListener(this)

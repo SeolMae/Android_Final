@@ -13,8 +13,13 @@ class HalAdapter (var dataList: ArrayList<UsrHalData>?, var requestManager: Requ
 
     override fun onBindViewHolder(holder: HalViewHolder, position: Int) {
         requestManager.load(dataList!!.get(position).hal_img).into(holder!!.HalImg)
-        holder!!.HalName.text = dataList!!.get(position).hal_name + " 할머니"
-        holder!!.HalDD.text = "만난지 " + dataList!!.get(position).met_date.toString() + "일"
+        if(dataList!!.get(position).hal_gender==0){
+            holder!!.HalName.text = dataList!!.get(position).hal_name + " 할아버지"
+        }
+        else{
+            holder!!.HalName.text = dataList!!.get(position).hal_name + " 할머니"
+        }
+        holder!!.HalDD.text = "만난지 " + dataList!!.get(position).met_time.toString() + "일"
         //holder!!.HalMsg.setImageResource()
         //holder!!.HalCall.setImageResource(dataList!!.get(position))
     }

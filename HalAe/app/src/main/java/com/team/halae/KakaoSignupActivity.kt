@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.util.Log
 import com.kakao.auth.Session
 import com.kakao.auth.helper.StartActivityWrapper
@@ -19,19 +20,19 @@ import java.util.logging.Logger
 
 class KakaoSignupActivity : Activity() {
     /**
-     * Main으로 넘길지 가입 페이지를 그릴지 판단하기 위해 me를 호출한다.
+     * Main으로 넘길지 가입 페이지를 그릴지 판단하기 위해 me를 호출
      * @param savedInstanceState 기존 session 정보가 저장된 객체
      */
 
 
-    private var networkService: NetworkService? = null
+    //private var networkService: NetworkService? = null
+    private var networkService =ApplicationController.instance!!.networkService
     var token : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //networkService = ApplicationController.instance!!.networkService
         requestMe()
-
-        networkService = ApplicationController.instance!!.networkService
     }
 
     /**
@@ -71,15 +72,25 @@ class KakaoSignupActivity : Activity() {
                 Log.v("kakaokakao",Session.getCurrentSession().accessToken)
 
                 val postLogin = networkService!!.postLogin(LoginPost(Session.getCurrentSession().accessToken))
+
+
                 postLogin.enqueue(object : Callback<LoginResponse> {
                     override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
                         ApplicationController.instance!!.makeToast("통신 확인")
+                        Log.v("why1","why1")
                     }
 
+
                     override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>?) {
-                        if(response!!.body().message == "success"){
-                            ApplicationController.instance!!.makeToast("로그인 성공")
-                            token = response!!.body().data.token
+                        if(response!!.isSuccessful) {
+                            Log.v("why2","why2")
+                            if (response!!.body().message == "success") {
+                                Log.v("why3","why3")
+                                ApplicationController.instance!!.makeToast("로그인 성공")
+                                token = response!!.body().data.token
+                                Log.v("tokentoken", token)
+                                redirectMainActivity() // 로그인 성공시 MainActivity로
+                            }
                         }
                     }
 
@@ -87,17 +98,22 @@ class KakaoSignupActivity : Activity() {
 
                 val kakaoID = userProfile.id.toString() // userProfile에서 ID값을 가져옴
                 val kakaoNickname = userProfile.nickname     // Nickname 값을 가져옴
-                redirectMainActivity() // 로그인 성공시 MainActivity로
-
+                //redirectMainActivity() // 로그인 성공시 MainActivity로
             }
         })
     }
 
     private fun redirectMainActivity() {
-        var intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("token", token)
-        startActivity(intent)
-        //startActivity(Intent(this, MainActivity::class.java))
+        //var intent = Intent(this, MainActivity::class.java)
+        //intent.putExtra("token", token)
+        //Log.v("here", token)
+        //startActivity(intent)
+
+
+        var fragment : Fragment = MainFragment()
+        var bundle : Bundle = Bundle()
+        bundle.putString("token", token)
+        fragment.setArguments(bundle)
 
         finish()
     }

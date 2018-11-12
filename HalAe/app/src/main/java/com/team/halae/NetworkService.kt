@@ -50,14 +50,14 @@ interface NetworkService {
             @Header("token") token: String
     ) : retrofit2.Call<BoardListResponse>
 
-    @GET("board/:(보드 게시물 인덱스)")
+    @GET("board/{index}")
     fun getBoardDetail(
-            @Header("board_idx") board_idx : Int
+            @Path("index") index: String
     ) : retrofit2.Call<BoardDetailResponse>
 
-    @GET("board/comment/:(게시물 인덱스)")
+    @GET("board/comment/{index}")
     fun getCommentList(
-            @Header("board_idx") board_idx: String
+            @Path("index") index: String
     ) : retrofit2.Call<CommentListResponse>
 
     @GET("usr/halmae")
@@ -104,7 +104,7 @@ interface NetworkService {
     ) : retrofit2.Call<PostUserScheduleResponse>
 
     //할메이트 찾기 필터링 하기
-    //브랜치 생성한다
+    //------------------------선영 통신--------------------------
     @POST("halmae/filter")
     fun postHalmateFitering(
             @Body filter : FilteringRequestBody

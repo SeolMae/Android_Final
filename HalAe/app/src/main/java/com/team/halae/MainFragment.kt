@@ -1,30 +1,28 @@
 package com.team.halae
 
+import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
-import android.media.Image
-import android.support.v7.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
-import android.provider.ContactsContract
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Base64
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
+import android.view.ViewGroup
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import kotlinx.android.synthetic.main.activity_board_write.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.halmate_items.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
-class MainActivity : AppCompatActivity() {
+
+
+class MainFragment : Fragment(){
+
     var token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6OTI3MzA0MjIyLCJpYXQiOjE1NDE2Njk4ODYsImV4cCI6MTU0NDI2MTg4Nn0.SD5FN00X_9pTl2SQ8eZov3Hg6CJ5k9VL9WwqYVnVzwA"
     private var networkService: NetworkService? = null
     private var requestManager: RequestManager? = null
@@ -42,17 +40,18 @@ class MainActivity : AppCompatActivity() {
     var don_idx : Int? = null
     var don_idx2 : Int? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_main, container, false)
 
         networkService = ApplicationController.instance!!.networkService
         requestManager = Glide.with(this)
 
-        myHalLists=findViewById(R.id.main_HalMate) as RecyclerView
-        myHalLists!!.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        myHalLists!!.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
 
-        token = getIntent().getStringExtra("token")
+        //token = getIntent().getStringExtra("token")
+        token=arguments!!.getString("token")
+
 
         val getUsrHalResponse = networkService!!.getUsrHalList(token)
         getUsrHalResponse.enqueue(object : Callback<UsrHalListResponse> {
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                     if(response!!.body().message == "Successfully get usr_halmae"){
                         adapter = HalAdapter(response.body().data, requestManager!!)
                         myHalDatas = response.body().data
-                        myHalLists!!.adapter = adapter
+                        main_HalMate!!.adapter = adapter
                         main_dontHal.setVisibility(TextView.GONE)
                     }
                     else if(response!!.body().message == "user don't have halmmate"){
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         val getRecommendDonationResponse = networkService!!.getRecommenDonationList(token)
-        getRecommendDonationResponse.enqueue(object : Callback<RecommendDonationResponse>{
+        getRecommendDonationResponse.enqueue(object : Callback<RecommendDonationResponse> {
             override fun onFailure(call: Call<RecommendDonationResponse>?, t: Throwable?) {
                 Log.v("lalala?","la?")
                 ApplicationController.instance!!.makeToast("통신 확인")
@@ -109,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         val getRecommendVolResponse = networkService!!.getRecommentVolList(token)
-        getRecommendVolResponse.enqueue(object : Callback<RecommendVolResponse>{
+        getRecommendVolResponse.enqueue(object : Callback<RecommendVolResponse> {
             override fun onFailure(call: Call<RecommendVolResponse>?, t: Throwable?) {
                 ApplicationController.instance!!.makeToast("통신 확인")
                 Log.v("lalala?","la?2")
@@ -132,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         val getRecommendHalResponse = networkService!!.getRecommendHalList(token)
-        getRecommendHalResponse.enqueue(object : Callback<RecommendHalResponse>{
+        getRecommendHalResponse.enqueue(object : Callback<RecommendHalResponse> {
             override fun onFailure(call: Call<RecommendHalResponse>?, t: Throwable?) {
                 Log.v("lalala?","la?3")
                 ApplicationController.instance!!.makeToast("통신 확인")
@@ -159,12 +158,12 @@ class MainActivity : AppCompatActivity() {
         })
 
         recommedPic1.setOnClickListener{
-            var intent = Intent(this, BoardDetailActivity::class.java)
+            var intent = Intent(activity, BoardDetailActivity::class.java)
             intent.putExtra("board_idx",board_idx)
             startActivity(intent)
         }
         recommedPic2.setOnClickListener{
-            var intent = Intent(this, BoardDetailActivity::class.java)
+            var intent = Intent(activity, BoardDetailActivity::class.java)
             intent.putExtra("board_idx",board_idx2)
             startActivity(intent)
         }
@@ -197,5 +196,5 @@ class MainActivity : AppCompatActivity() {
         }
         */
     }
-}
 
+}
