@@ -13,6 +13,7 @@ import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.*
+import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import kotlinx.android.synthetic.main.activity_board_write.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,8 +25,7 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 class MainActivity : AppCompatActivity() {
-
-    var token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6OTI3MzA0MjIyLCJpYXQiOjE1MzgyOTY3NDMsImV4cCI6MTU0MDg4ODc0M30.KuDpOGzvy4NzQJjUJ0InjdSIdWYmhn10CfCS1QLLBzA"
+    var token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6OTI3MzA0MjIyLCJpYXQiOjE1NDE2Njk4ODYsImV4cCI6MTU0NDI2MTg4Nn0.SD5FN00X_9pTl2SQ8eZov3Hg6CJ5k9VL9WwqYVnVzwA"
     private var networkService: NetworkService? = null
     private var requestManager: RequestManager? = null
 
@@ -47,8 +47,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         networkService = ApplicationController.instance!!.networkService
+        requestManager = Glide.with(this)
 
-        //token = getIntent().getStringExtra("token")
+        myHalLists=findViewById(R.id.main_HalMate) as RecyclerView
+        myHalLists!!.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        token = getIntent().getStringExtra("token")
 
         val getUsrHalResponse = networkService!!.getUsrHalList(token)
         getUsrHalResponse.enqueue(object : Callback<UsrHalListResponse> {
@@ -74,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         val getRecommendDonationResponse = networkService!!.getRecommenDonationList(token)
         getRecommendDonationResponse.enqueue(object : Callback<RecommendDonationResponse>{
             override fun onFailure(call: Call<RecommendDonationResponse>?, t: Throwable?) {
+                Log.v("lalala?","la?")
                 ApplicationController.instance!!.makeToast("통신 확인")
             }
 
@@ -85,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                         DoHalName1.setText(response!!.body().data[0].hal_name + " 할머니")
                         DoTotalMoney1.setText(response!!.body().data[0].don_now.toString() + "원")
                         DoPercent1.setText(response!!.body().data[0].don_percent.toString()+"%")
-                        DoStatus1.setProgress(response!!.body().data[0].don_percent)
+                        DoStatus1.setProgress(response!!.body().data[0].don_percent.toInt())
                         don_idx = response!!.body().data[0].don_idx
 
 
@@ -94,7 +99,7 @@ class MainActivity : AppCompatActivity() {
                         DoHalName2.setText(response!!.body().data[1].hal_name + " 할머니")
                         DoTotalMoney2.setText(response!!.body().data[1].don_now.toString() + "원")
                         DoPercent2.setText(response!!.body().data[1].don_percent.toString()+"%")
-                        DoStatus2.setProgress(response!!.body().data[1].don_percent)
+                        DoStatus2.setProgress(response!!.body().data[1].don_percent.toInt())
                         don_idx2 = response!!.body().data[1].don_idx
 
                     }
@@ -107,18 +112,19 @@ class MainActivity : AppCompatActivity() {
         getRecommendVolResponse.enqueue(object : Callback<RecommendVolResponse>{
             override fun onFailure(call: Call<RecommendVolResponse>?, t: Throwable?) {
                 ApplicationController.instance!!.makeToast("통신 확인")
+                Log.v("lalala?","la?2")
             }
 
             override fun onResponse(call: Call<RecommendVolResponse>?, response: Response<RecommendVolResponse>?) {
                 if(response!!.isSuccessful){
-                    if(response!!.body().message == "Successfully get recommend_donate"){
+                    if(response!!.body().message == "Successfully get recommend_board"){
                         requestManager!!.load(response!!.body().data[0].board_img).into(recommedPic1)
                         recommedTitle1.setText(response!!.body().data[0].board_title)
                         board_idx=response!!.body().data[0].board_idx
 
                         requestManager!!.load(response!!.body().data[0].board_img).into(recommedPic2)
                         recommedTitle2.setText(response!!.body().data[0].board_title)
-                        board_idx=response!!.body().data[1].board_idx
+                        board_idx2=response!!.body().data[1].board_idx
                     }
                 }
             }
@@ -128,22 +134,23 @@ class MainActivity : AppCompatActivity() {
         val getRecommendHalResponse = networkService!!.getRecommendHalList(token)
         getRecommendHalResponse.enqueue(object : Callback<RecommendHalResponse>{
             override fun onFailure(call: Call<RecommendHalResponse>?, t: Throwable?) {
+                Log.v("lalala?","la?3")
                 ApplicationController.instance!!.makeToast("통신 확인")
             }
 
             override fun onResponse(call: Call<RecommendHalResponse>?, response: Response<RecommendHalResponse>?) {
                 if(response!!.isSuccessful){
-                    if(response!!.body().message == "Successfully get recommend_donate"){
+                    if(response!!.body().message == "Successfully get recommend_halmate"){
                         requestManager!!.load(response!!.body().data[0].hal_img).into(recoHalImg1)
                         HalAge.setText(response!!.body().data[0].hal_name + " 할머니, " + response!!.body().data[0].hal_age.toString()+"세")
-                        HalAdd.setText(response!!.body().data[0].hal_add)
-                        HalHob.setText("#" + response!!.body().data[0].inter_list.interest[0] + " #" + response!!.body().data[0].inter_list.interest[1])
+                        HalAdd.setText(response!!.body().data[0].hal_address)
+                        HalHob.setText("#" + response!!.body().data[0].inter_list[0] + " #" + response!!.body().data[0].inter_list[1])
                         hal_idx = response!!.body().data[0].hal_idx
 
                         requestManager!!.load(response!!.body().data[1].hal_img).into(recoHalImg2)
                         HalAge2.setText(response!!.body().data[1].hal_name + " 할머니, " + response!!.body().data[0].hal_age.toString()+"세")
-                        HalAdd2.setText(response!!.body().data[1].hal_add)
-                        HalHob2.setText("#" + response!!.body().data[1].inter_list.interest[0] + " #" + response!!.body().data[1].inter_list.interest[1])
+                        HalAdd2.setText(response!!.body().data[1].hal_address)
+                        HalHob2.setText("#" + response!!.body().data[1].inter_list[0] + " #" + response!!.body().data[1].inter_list[1])
                         hal_idx2 = response!!.body().data[0].hal_idx
                     }
                 }

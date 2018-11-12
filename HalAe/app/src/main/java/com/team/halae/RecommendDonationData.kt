@@ -6,5 +6,5 @@ data class RecommendDonationData (
         var don_img : String,
         var hal_name : String,
         var don_now : Int,
-        var don_percent : Int
+        var don_percent : Float
 )
