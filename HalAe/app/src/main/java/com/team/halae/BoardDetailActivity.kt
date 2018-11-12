@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.team.halae.R.id.*
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_board_detail.*
 import kotlinx.android.synthetic.main.post_items.*
@@ -18,7 +19,7 @@ class BoardDetailActivity : AppCompatActivity() {
 
     var getImage : CircleImageView? = null
 
-    var board_idx: Int = null!!
+    var board_idx : Int? =null
     private var networkService: NetworkService? = null
     private var requestManager: RequestManager? = null
 
@@ -40,7 +41,7 @@ class BoardDetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val getBoardDetailResponse = networkService!!.getBoardDetail(board_idx)
+        val getBoardDetailResponse = networkService!!.getBoardDetail(board_idx.toString())
         getBoardDetailResponse.enqueue(object : Callback<BoardDetailResponse>{
             override fun onFailure(call: Call<BoardDetailResponse>?, t: Throwable?) {
                 ApplicationController.instance!!.makeToast("통신 확인")

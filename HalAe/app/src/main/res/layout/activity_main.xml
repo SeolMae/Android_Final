@@ -89,8 +89,10 @@
                     android:layout_height="wrap_content"
                     android:text="양시연님, 이런 봉사 어떠세요?"/>
                 <ImageButton
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/main_next"
                     android:id="@+id/main_bolMore"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="18dp"
                     android:layout_toRightOf="@+id/recommendBol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -109,6 +111,7 @@
                     android:layout_width="160dp"
                     android:layout_height="100dp" />
                 <TextView
+                    android:width="160dp"
                     android:id="@+id/recommedTitle1"
                     android:textColor="#606060"
                     android:layout_marginLeft="35dp"
@@ -130,7 +133,7 @@
                     android:layout_below="@+id/recommedPic1"
                     android:textSize="13dp"
                     android:text="할머니 염색을 해드렸어요!"
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content" />
             </RelativeLayout>
         </RelativeLayout>
@@ -156,15 +159,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="내 주변 할메이트"/>
+
                 <ImageButton
+                    android:src="@drawable/main_next"
+                    android:background="@android:color/transparent"
                     android:id="@+id/main_halMore"
-                    android:layout_marginTop="15dp"
-                    android:layout_toRightOf="@+id/recommendHal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_toRightOf="@+id/recommendHal" />
             </RelativeLayout>
 
             <RelativeLayout
+                android:layout_marginBottom="5dp"
                 android:id="@+id/recoHal1"
                 android:layout_below="@+id/Hal"
                 android:layout_width="match_parent"
@@ -187,6 +194,8 @@
                         android:layout_height="wrap_content"
                         android:text="이선영 할머니, 92세"/>
                     <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/main_location"
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="3dp"
                         android:id="@+id/add1"
@@ -202,6 +211,8 @@
                         android:layout_height="wrap_content"
                         android:text="서울시 중구 장충동" />
                     <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/main_heart"
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="3dp"
                         android:id="@+id/hob1"
@@ -237,6 +248,8 @@
                         android:layout_height="wrap_content"
                         android:text="신예지 할머니, 85세"/>
                     <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/main_location"
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="3dp"
                         android:id="@+id/add2"
@@ -252,6 +265,8 @@
                         android:layout_height="wrap_content"
                         android:text="서울시 중구 필동" />
                     <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/main_heart"
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="3dp"
                         android:id="@+id/hob2"
@@ -272,6 +287,7 @@
 
 
         <RelativeLayout
+            android:layout_marginBottom="5dp"
             android:background="#ffffff"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
@@ -292,8 +308,10 @@
                     android:layout_height="wrap_content"
                     android:text="양시연님, 함께 해주세요!"/>
                 <ImageButton
+                    android:src="@drawable/main_next"
+                    android:background="@android:color/transparent"
                     android:id="@+id/main_doMore"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="18dp"
                     android:layout_toRightOf="@+id/DoWith"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
