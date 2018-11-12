@@ -78,7 +78,7 @@ class HalmateFragment : Fragment(), View.OnClickListener {
         halmateInformationResponse.enqueue(object : retrofit2.Callback<HalmateInformationResponse> {
             override fun onResponse(call: Call<HalmateInformationResponse>?, response: Response<HalmateInformationResponse>?) {
                 if(response!!.isSuccessful){
-                    response.body().result
+//                    halmate_info_image.setImage(response.body().result.hal_img.)
                 }
             }
 
