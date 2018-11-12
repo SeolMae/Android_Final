@@ -14,6 +14,8 @@
 
 
         <RelativeLayout
+            android:paddingBottom="4dp"
+            android:elevation="4dp"
             android:background="#ffffff"
             android:id="@+id/title_HalAe"
             android:layout_width="match_parent"
@@ -29,12 +31,6 @@
         </RelativeLayout>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#b8b8b8"></RelativeLayout>
-
-
 
         <LinearLayout
             android:orientation="vertical"
@@ -42,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:textStyle="bold"
                 android:textColor="#606060"
                 android:id="@+id/myHalmate"
                 android:padding="15dp"
@@ -73,12 +70,13 @@
             android:background="#ffffff"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:textStyle="bold"
                     android:textColor="#606060"
                     android:id="@+id/recommendBol"
                     android:layout_marginTop="15dp"
@@ -99,6 +97,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
@@ -111,6 +110,7 @@
                     android:layout_width="160dp"
                     android:layout_height="100dp" />
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:width="160dp"
                     android:id="@+id/recommedTitle1"
                     android:textColor="#606060"
@@ -127,6 +127,7 @@
                     android:layout_width="160dp"
                     android:layout_height="100dp" />
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/recommedTitle2"
                     android:textColor="#606060"
                     android:layout_marginLeft="220dp"
@@ -150,6 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:textStyle="bold"
                     android:textColor="#606060"
                     android:id="@+id/recommendHal"
                     android:layout_marginTop="15dp"
@@ -171,7 +173,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/recoHal1"
                 android:layout_below="@+id/Hal"
                 android:layout_width="match_parent"
@@ -180,12 +182,13 @@
                     android:id="@+id/main_DoRec1"
                     android:layout_marginLeft="20dp"
                     android:layout_width="160dp"
-                    android:layout_height="150dp">
+                    android:layout_height="wrap_content">
                     <ImageView
                         android:id="@+id/recoHalImg1"
                         android:layout_width="match_parent"
                         android:layout_height="90dp" />
                     <TextView
+                        android:layout_marginTop="10dp"
                         android:textColor="#606060"
                         android:id="@+id/HalAge"
                         android:layout_centerHorizontal="true"
@@ -234,12 +237,13 @@
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_width="160dp"
-                    android:layout_height="150dp">
+                    android:layout_height="wrap_content">
                     <ImageView
                         android:id="@+id/recoHalImg2"
                         android:layout_width="match_parent"
                         android:layout_height="90dp" />
                     <TextView
+                        android:layout_marginTop="10dp"
                         android:textColor="#606060"
                         android:id="@+id/HalAge2"
                         android:layout_centerHorizontal="true"
@@ -298,6 +302,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:textStyle="bold"
                     android:textColor="#606060"
                     android:id="@+id/DoWith"
                     android:layout_marginTop="15dp"
@@ -318,6 +323,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:layout_marginBottom="10dp"
                 android:id="@+id/main_HalDoRec1"
                 android:layout_below="@id/HalDonate"
                 android:layout_marginLeft="20dp"
@@ -328,6 +334,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp" />
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:textColor="#606060"
                     android:layout_margin="2dp"
                     android:id="@+id/DoWithTopic1"
@@ -384,6 +391,7 @@
 
 
             <RelativeLayout
+                android:layout_marginBottom="10dp"
                 android:id="@+id/main_HalDoRec2"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/HalDonate"
@@ -395,6 +403,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp" />
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:textColor="#606060"
                     android:layout_margin="2dp"
                     android:id="@+id/DoWithTopic2"

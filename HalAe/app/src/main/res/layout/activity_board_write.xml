@@ -9,7 +9,8 @@
     tools:context=".BoardWriteActivity">
 
     <RelativeLayout
-        android:elevation="2dp"
+        android:paddingBottom="4dp"
+        android:elevation="4dp"
         android:background="#ffffff"
         android:id="@+id/title_board_write"
         android:layout_width="match_parent"
@@ -28,7 +29,6 @@
             android:textColor="#9ce3ff"
             android:id="@+id/boardwrite_add"
             android:background="@android:color/transparent"
-            android:layout_marginRight="15dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"

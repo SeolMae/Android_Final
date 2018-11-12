@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.util.Log
 import com.kakao.auth.Session
 import com.kakao.auth.helper.StartActivityWrapper
@@ -103,11 +104,16 @@ class KakaoSignupActivity : Activity() {
     }
 
     private fun redirectMainActivity() {
-        var intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("token", token)
-        Log.v("here", token)
-        startActivity(intent)
-        //startActivity(Intent(this, MainActivity::class.java))
+        //var intent = Intent(this, MainActivity::class.java)
+        //intent.putExtra("token", token)
+        //Log.v("here", token)
+        //startActivity(intent)
+
+
+        var fragment : Fragment = MainFragment()
+        var bundle : Bundle = Bundle()
+        bundle.putString("token", token)
+        fragment.setArguments(bundle)
 
         finish()
     }
