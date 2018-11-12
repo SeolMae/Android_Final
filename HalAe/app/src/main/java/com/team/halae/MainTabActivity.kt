@@ -13,11 +13,20 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 class MainTabActivity : AppCompatActivity(), View.OnClickListener{
+    var token : String? = null
+
     override fun onClick(v: View?) {
         when(v){
             main_home_tab->{
                 clearSelected()
                 main_home_tab.isSelected = true
+
+                var fragment : Fragment = MainFragment()
+                var bundle : Bundle = Bundle()
+                bundle.putString("token", token)
+                fragment.setArguments(bundle)
+
+                replaceFragment(MainFragment())
             }
             main_search_tab->{
                 clearSelected()
@@ -41,7 +50,10 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_tab)
-        addFragment(HalmateFragment())
+
+        token = getIntent().getStringExtra("token1")
+
+        addFragment(MainFragment())
         main_home_tab.isSelected = true
         main_home_tab.setOnClickListener(this)
         main_search_tab.setOnClickListener(this)
