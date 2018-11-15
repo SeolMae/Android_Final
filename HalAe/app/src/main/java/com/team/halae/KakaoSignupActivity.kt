@@ -104,8 +104,8 @@ class KakaoSignupActivity : Activity() {
     }
 
     private fun redirectMainActivity() {
-        var intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("token", token)
+        var intent = Intent(this, MainTabActivity::class.java)
+        intent.putExtra("token1", token)
         Log.v("here", token)
         startActivity(intent)
 
