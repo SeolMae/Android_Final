@@ -7,6 +7,7 @@ import android.icu.util.Calendar
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v4.app.INotificationSideChannel
 import android.util.EventLog
 import android.view.LayoutInflater
 import android.view.View
@@ -22,17 +23,24 @@ import jp.co.recruit_mp.android.lightcalendarview.MonthView
 import jp.co.recruit_mp.android.lightcalendarview.WeekDay
 import jp.co.recruit_mp.android.lightcalendarview.accent.Accent
 import jp.co.recruit_mp.android.lightcalendarview.accent.DotAccent
+import kotlinx.android.synthetic.main.fragment_halmate.*
 import kotlinx.android.synthetic.main.fragment_halmate_schedule.*
 import kotlinx.android.synthetic.main.fragment_halmate_schedule.view.*
+import retrofit2.Call
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class HalmateScheduleFragment : Fragment() {
 
+    lateinit var networkService: NetworkService
+
+
     lateinit var calendarView: LightCalendarView
 
     private val formatter = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
+//    lateinit var scheduledDate : ArrayList<Int>
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -43,6 +51,24 @@ class HalmateScheduleFragment : Fragment() {
 //            startActivity(Intent(context, HalmateScheduleSelectActivity::class.java))
 //        }
 
+        val index : Int = 0
+        networkService = ApplicationController.instance.networkService
+        var halmateScheduleInfoResponse  = networkService.getHalmateSchedule(index.toString())
+        halmateScheduleInfoResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
+            override fun onFailure(call: Call<HalmateScheuleInfoResponse>?, t: Throwable?) {
+                Log.e("통신실패", t.toString())
+            }
+
+            override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
+                Log.e("통신성공",response!!.body().message)
+                //띠요옹 월별로 받아야되나 어쩌지이...
+//                scheduledDate[0] = 1
+//                scheduledDate[1] = 10
+//                scheduledDate[2] = 11
+            }
+
+
+        })
 
         return v
     }
@@ -69,6 +95,7 @@ class HalmateScheduleFragment : Fragment() {
 
             //map에 date만 통신후에 수정하기!
             //isScheduled 함수 짜서 isScheduled(it) 가 true 인 날짜에만 dotted!
+//            isScheduled(it,scheduledDate ) == true
             override fun onMonthSelected(date: Date, view: MonthView) {
 //                val title = view.findViewById<TextView>(R.id.calendar_month)
 //                title.text = formatter.format(date)
@@ -102,5 +129,15 @@ class HalmateScheduleFragment : Fragment() {
         }
 
 
+    }
+
+    fun isScheduled(it : Int, dates : ArrayList<Int>) : Boolean {
+        val i : Int = dates.size
+        for (j in 0 until i-1){
+            if(dates[j]==it){
+                return true
+            }
+        }
+        return false
     }
 }

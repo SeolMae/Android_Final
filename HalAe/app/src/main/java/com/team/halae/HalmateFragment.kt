@@ -79,6 +79,10 @@ class HalmateFragment : Fragment(), View.OnClickListener {
             override fun onResponse(call: Call<HalmateInformationResponse>?, response: Response<HalmateInformationResponse>?) {
                 if(response!!.isSuccessful){
 //                    halmate_info_image.setImage(response.body().result.hal_img.)
+                    halmate_add.text = response.body().result.hal_address
+                    halmate_phone.text = response.body().result.hal_phone
+                    halmate_info_vol.text = "봉사자 " + response.body().result.vol_cnt.toString() + "명"
+                    Log.e("통신성공",response.body().message)
                 }
             }
 

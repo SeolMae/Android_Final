@@ -8,17 +8,17 @@ interface NetworkService {
 
     //---------고운통신부분
 
-    @POST("/auth/register")
+    @POST("auth/register")
     fun postRegisterUserInfo(
             @Body postRegisterUserInfo: PostRegisterUserInfo
     ) : retrofit2.Call<PostRegisterUserInfoResponse>
 
-    @GET("/halmae/{index}")
+    @GET("halmae/{index}")
     fun getHalmateInformation(
             @Path("index") index: String
     ) : retrofit2.Call<HalmateInformationResponse>
 
-    @GET("/halmae/schedule/{index}")
+    @GET("halmae/schedule/{index}")
     fun getHalmateSchedule(
             @Path("index") index : String
     ) : retrofit2.Call<HalmateScheuleInfoResponse>
