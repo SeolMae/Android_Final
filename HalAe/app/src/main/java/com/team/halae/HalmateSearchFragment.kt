@@ -36,31 +36,21 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
     lateinit var interest : String
 
     private var networkService : NetworkService? = null
-    private var filteringrequestbody : FilteringRequestBody? = null
-    private var filteringdefaultbody  : FilteringRequestBody? = null
+    private var filteringrequestbody : FilteringRequestBody = FilteringRequestBody("위치", 2, "관심분야")
+
+    lateinit var setResultBody : ArrayList<SearchItem>
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
 
         networkService = ApplicationController.instance!!.networkService
 
         mGlideRequestManager = Glide.with(this)
+        setResultBody = ArrayList()
 
         val v = inflater.inflate(R.layout.fragment_halmate_search,container,false)
         searchRecyclerView = v.findViewById(R.id.halmate_search_list)
-        searchResult = ArrayList()
-        searchAdapter = SearchAdapter(searchResult, mGlideRequestManager)
-        searchAdapter!!.setOnItemClickListner(this)
-
-
-        //-----------------------------디폴트 리스트 받아오기----------------------------------
-/*
-        searchResult.add(SearchItem(R.drawable.sample, "박태환 할아버지", 78,"서울시 중구 필동", "#사진#독서"))
-        searchResult.add(SearchItem(R.drawable.sample, "최서정 할머니", 78,"서울시 성북구 길음동", "#사진#독서"))
-        searchResult.add(SearchItem(R.drawable.sample, "최서정 할머니", 78,"서울시 성북구 길음동", "#사진#독서"))
-        searchResult.add(SearchItem(R.drawable.sample, "최서정 할머니", 78,"서울시 성북구 길음동", "#사진#독서"))
-        searchResult.add(SearchItem(R.drawable.sample, "최서정 할머니", 78,"서울시 성북구 길음동", "#사진#독서"))
-        searchResult.add(SearchItem(R.drawable.sample, "최서정 할머니", 78,"서울시 성북구 길음동", "#사진#독서"))
-*/
 
         //-----------------스피너----------------
         locationSpinner = v.findViewById(R.id.search_spinner_location)
@@ -84,13 +74,14 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
         genderSpinner!!.setOnItemSelectedListener(this)
         interestSpinner!!.setOnItemSelectedListener(this)
 
-        searchRecyclerView!!.layoutManager = GridLayoutManager(this.context, 2)
-        searchRecyclerView!!.adapter = searchAdapter
-        searchRecyclerView.setOnClickListener(this)
 
         //----------------------찾기 버튼--------------------------
         searchbtn = v.findViewById(R.id.search_search_btn)
         searchbtn!!.setOnClickListener(this)
+
+
+        searchRecyclerView!!.layoutManager = GridLayoutManager(this.context, 2)
+        searchRecyclerView.setOnClickListener(this)
 
 
        return v
@@ -108,8 +99,8 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                 Log.v("sylee", "location spinner test")
                 Toast.makeText(context, "location",Toast.LENGTH_LONG).show()
                 location = locationSpinner!!.selectedItem.toString()
-                if(location == "위치") location = ""
-                filteringrequestbody!!.hal_address = null.toString()
+                if(location == "위치") filteringrequestbody!!.hal_address = "위치"
+                filteringrequestbody!!.hal_address = location
             }
             genderSpinner -> {
                 Log.v("sylee", "gender spinner test")
@@ -123,7 +114,7 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                 else if(gender == "여") {
                     filteringrequestbody!!.hal_gender = 1
                 }else if(gender == "성별"){
-                    filteringrequestbody!!.hal_gender = null
+                    filteringrequestbody!!.hal_gender = 2
                 }
 
             }
@@ -132,8 +123,8 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                 Toast.makeText(context, "interest" + p2, Toast.LENGTH_LONG).show()
                 interest = interestSpinner!!.selectedItem.toString()
                 Log.v("sylee", interest)
-                if(interest == "관심분야") interest = ""
-                filteringrequestbody!!.hal_interest = null.toString()
+                if(interest == "관심분야") filteringrequestbody!!.hal_interest = "관심분야"
+                filteringrequestbody!!.hal_interest = interest
             }
         }
 
@@ -147,14 +138,44 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                     Log.v("sylee","halmate search isSuccessful")
 
                     if(response.body().message.equals("get halmate schedule information Success")){
-                        Log.v("sylee","status code 201")
-                        Log.v("sylee", response.body().result[0].toString())
-                        //for(i in)
+                        Log.v("sylee", response.body().result.toString())
 
+                        var sethalname : String
+                        var sethalinterest : String = ""
+
+                        for(i  in 0..(response.body().result.size)-1){
+
+                            if(response.body().result[i].hal_gender == 0){
+                                sethalname = response.body().result[i].hal_name + " 할아버지"
+                            }else{
+                                sethalname = response.body().result[i].hal_name + " 할머니"
+                            }
+
+
+                            sethalinterest = ""
+
+                            for(j in 0..(response.body().result[i].interestArry.size-1)){
+                                sethalinterest += "#" + response.body().result[i].interestArry[j]
+                            }
+
+
+                            var tempSearchItem : SearchItem
+                                    = SearchItem(response.body().result[i].hal_img, sethalname,
+                                    response.body().result[i].hal_age, response.body().result[i].hal_address, sethalinterest)
+
+                            Log.v("sylee", sethalinterest)
+                            setResultBody.add(tempSearchItem)
+
+                        }
+
+                        searchAdapter = SearchAdapter(setResultBody!!, mGlideRequestManager)
+                        searchRecyclerView!!.adapter = searchAdapter
+                        searchAdapter!!.setOnItemClickListner(this@HalmateSearchFragment)
 
                     }
                 }
             }
+
 
             override fun onFailure(call: Call<FilteringPostResponse>?, t: Throwable?) {
                 //ApplicationController.instance!!.makeToast("onFailure")

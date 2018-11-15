@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.team.halae.R.id.donate_halmate_img
+import retrofit2.Response
 
 class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListener {
 
@@ -42,17 +44,14 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
         alignspinner!!.adapter = alignAdapter
         alignspinner!!.setSelection(0)
         alignspinner!!.setOnItemSelectedListener(this)
-        align = alignspinner!!.selectedItem.toString()
 
         //------------------------------기부글 recyclerview---------------------------------
         donateList = ArrayList<DonateListItem>()
-        donateList.add(DonateListItem("https://s3.ap-northeast-2.amazonaws.com/halmate/%EB%B0%95%ED%83%9C%ED%99%98.jpg", "최고운 할머니는 맥북이 필요해요.","회고운할머니(67)","모금 목표 금액 3,000,000원","1,260,000원","42%","종료6일전"))
-        donateList.add(DonateListItem("https://s3.ap-northeast-2.amazonaws.com/halmate/%EB%B0%95%ED%83%9C%ED%99%98.jpg", "최고운 할머니는 맥북이 필요해요.","회고운할머니(67)","모금 목표 금액 3,000,000원","1,260,000원","42%","종료6일전"))
-        donateList.add(DonateListItem("https://s3.ap-northeast-2.amazonaws.com/halmate/%EB%B0%95%ED%83%9C%ED%99%98.jpg", "최고운 할머니는 맥북이 필요해요.","회고운할머니(67)","모금 목표 금액 3,000,000원","1,260,000원","42%","종료6일전"))
         donateRecyclerView!!.layoutManager = LinearLayoutManager(context)
         donateRecyclerView!!.setOnClickListener(this)
 
         return v
+
 
     }
 
@@ -62,12 +61,15 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
-       /* var getdonatelist = networkService!!.getdonateList(align!!)
+        align = alignspinner!!.selectedItem.toString()
+        Log.v("sylee", align)
+
+        var getdonatelist = networkService!!.getdonateList(align!!)
 
         getdonatelist.enqueue(object : retrofit2.Callback<DonateListResponse> {
 
             override fun onFailure(call: retrofit2.Call<DonateListResponse>?, t: Throwable?) {
-                //ApplicationController.instance!!.makeToast("onFailure")
+
                 Log.v("sylee", "donate list onfailure")
                 Log.v("sylee", t.toString())
             }
@@ -77,14 +79,17 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                 if (response!!.isSuccessful) {
                     if (response.body().message.equals("get donate list Success")) {
                         Log.v("sylee", "status code 201")
+                        Log.v("sylee", response.body().toString())
                         donateAdapter = DonateListAdapter(donateList, mGlideRequestManager)
                         donateRecyclerView!!.adapter = donateAdapter
 
                         //결과 값 array 에 저장
                         var resultarry = response.body().result
                         var resultlen = resultarry.size
+                        Log.v("sylee", resultlen.toString())
 
-                        for (i in 1..resultlen) {
+                        for (i in 0..(resultlen-1)) {
+                            Log.v("sylee", "A")
 
                             if (response.body().result[i].hal_gender == 0) {
                                 halnameandage = response.body().result[i].hal_name + " 할아버지(" + response.body().result[i].hal_age.toString() + ")"
@@ -97,12 +102,15 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                             var percentage = ((response.body().result[i].now_money / response.body().result[i].goal_money) * 100).toString() + "%"
                             var leftdays = "종료 6일 전"
 
-                            donateList.add(DonateListItem(response.body().result[i].hal_img, response.body().result[i].don_title, halnameandage!!, goalmoney,nowmoney,percentage,leftdays))
+                            //donateList.add(DonateListItem(response.body().result[i].hal_img, response.body().result[i].don_title, halnameandage!!, goalmoney, nowmoney, percentage, leftdays))
+                            //Glide.with(context).load(response.body().result[i].hal_img).to(donate_halmate_img)
+
+
                         }
                     }
                 }
             }
-        })*/
+        })
     }
 
     override fun onClick(v: View?) {
@@ -131,3 +139,4 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
 
     }
 }
+

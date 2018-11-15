@@ -104,16 +104,19 @@ class KakaoSignupActivity : Activity() {
     }
 
     private fun redirectMainActivity() {
-        //var intent = Intent(this, MainActivity::class.java)
-        //intent.putExtra("token", token)
-        //Log.v("here", token)
-        //startActivity(intent)
+        var intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("token", token)
+        Log.v("here", token)
+        startActivity(intent)
 
-
+        /*
         var fragment : Fragment = MainFragment()
         var bundle : Bundle = Bundle()
         bundle.putString("token", token)
         fragment.setArguments(bundle)
+
+        startActivity(Intent(this, MainTabActivity::class.java))
+        */
 
         finish()
     }

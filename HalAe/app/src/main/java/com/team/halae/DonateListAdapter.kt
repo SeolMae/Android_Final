@@ -22,7 +22,7 @@ class DonateListAdapter(var donateList : ArrayList<DonateListItem>,var glideRequ
     override fun onBindViewHolder(holder: DonateListViewHolder, position: Int) {
 
         //holder.donateImg.setImageResource(donateList[position].donateimg)
-        glideRequest.load(donateList[position].donateimg)
+        //glideRequest.load(donateList[position].donateimg).into()
         holder.donateTitle.setText(donateList[position].donatetitle)
         holder.donateHalmatename.setText(donateList[position].donatehalmatename)
         holder.donateGoalmoney.setText(donateList[position].donategoalmoney)

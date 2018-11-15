@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment
 import android.util.Base64
 import android.util.Log
 import android.view.View
-import com.team.halae.R.id.*
 import kotlinx.android.synthetic.main.activity_main_tab.*
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -41,10 +40,10 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        addFragment(HalmateFragment())
-        main_home_tab!!.isSelected = true
-        main_home_tab!!.setOnClickListener(this)
+        setContentView(R.layout.activity_main_tab)
+        addFragment(HalmateSearchFragment())
+        main_home_tab.isSelected = true
+        main_home_tab.setOnClickListener(this)
         main_search_tab.setOnClickListener(this)
         main_sns_tab.setOnClickListener(this)
         main_donate_tab.setOnClickListener(this)
