@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         myHalLists=findViewById(R.id.main_HalMate) as RecyclerView
         myHalLists!!.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        token = getIntent().getStringExtra("token")
+        token = getIntent().getStringExtra("token1")
 
         val getUsrHalResponse = networkService!!.getUsrHalList(token)
         getUsrHalResponse.enqueue(object : Callback<UsrHalListResponse> {
