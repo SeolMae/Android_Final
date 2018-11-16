@@ -8,23 +8,30 @@ interface NetworkService {
 
     //---------고운통신부분
 
-    @POST("/auth/register")
+    @POST("auth/register")
     fun postRegisterUserInfo(
             @Body postRegisterUserInfo: PostRegisterUserInfo
     ) : retrofit2.Call<PostRegisterUserInfoResponse>
 
-    @GET("/halmae/{index}")
+    @GET("halmae/{index}")
     fun getHalmateInformation(
             @Path("index") index: String
     ) : retrofit2.Call<HalmateInformationResponse>
 
-    @GET("/halmae/schedule/{index}")
+    @GET("halmae/schedule/{index}")
     fun getHalmateSchedule(
             @Path("index") index : String
     ) : retrofit2.Call<HalmateScheuleInfoResponse>
 
-    //한 할머니 그룹 보기 api 이상해서 패스
+    @GET("halmae/board/{index}")
+    fun getHalmateBoard(
+            @Path("index") index : String
+    ) : retrofit2.Call<HalmateBoardResponse>
 
+    @GET("halmae/group/{index}")
+    fun getHalmateGroup(
+            @Path("index") index : String
+    ) : retrofit2.Call<HalmateGroupResponse>
 
 
     //---------고운통신부분

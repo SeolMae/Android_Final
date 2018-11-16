@@ -50,6 +50,8 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
 
         token = getIntent().getStringExtra("token1")
 
+//        addFragment(HalmateFragment())
+
         var fragment : Fragment = MainFragment()
         var bundle : Bundle = Bundle()
         bundle.putString("token", token)

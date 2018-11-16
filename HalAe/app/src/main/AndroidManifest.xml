@@ -31,7 +31,6 @@
         <activity android:name=".BoardDetailActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".Login1Activity" />
-        <!-- <activity android:name=".MainTabActivity"/> -->
         <activity
             android:name=".HalmateScheduleSelectActivity"
             android:theme="@style/Transparent" />
@@ -42,6 +41,7 @@
         <activity android:name=".LoginActivity3" />
         <activity android:name=".LoginSearchActivity1" />
         <activity android:name=".LoginSearchActivity2" />
+        <!--<activity android:name=".SplashActivity"/>-->
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
