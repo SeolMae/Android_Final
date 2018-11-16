@@ -101,16 +101,16 @@
 
 
                     <RelativeLayout
-                        android:layout_width="27.45dp"
-                        android:layout_height="27.45dp"
+                        android:layout_width="20.45dp"
+                        android:layout_height="20.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/schedule_add_btn">
 
                         <ImageView
                             android:src="@drawable/halmate_schedule_add"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerInParent="true"
                             />
 
@@ -135,16 +135,16 @@
                         android:src="@drawable/halmate_group_person"/>
 
                     <RelativeLayout
-                        android:layout_width="27.45dp"
-                        android:layout_height="27.45dp"
+                        android:layout_width="20.45dp"
+                        android:layout_height="20.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/schedule_add_btn">
 
                         <ImageView
                             android:src="@drawable/halmate_schedule_add"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerInParent="true"
                             />
 
@@ -169,16 +169,16 @@
                         android:src="@drawable/halmate_group_person"/>
 
                     <RelativeLayout
-                        android:layout_width="27.45dp"
-                        android:layout_height="27.45dp"
+                        android:layout_width="20.45dp"
+                        android:layout_height="20.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/schedule_add_btn">
 
                         <ImageView
                             android:src="@drawable/halmate_schedule_add"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerInParent="true"
                             />
 
@@ -203,16 +203,16 @@
                         android:src="@drawable/halmate_group_person"/>
 
                     <RelativeLayout
-                        android:layout_width="27.45dp"
-                        android:layout_height="27.45dp"
+                        android:layout_width="20.45dp"
+                        android:layout_height="20.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/schedule_add_btn">
 
                         <ImageView
                             android:src="@drawable/halmate_schedule_add"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerInParent="true"
                             />
 
@@ -237,16 +237,16 @@
                         android:src="@drawable/halmate_group_person"/>
 
                     <RelativeLayout
-                        android:layout_width="27.45dp"
-                        android:layout_height="27.45dp"
+                        android:layout_width="20.45dp"
+                        android:layout_height="20.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/schedule_add_btn">
 
                         <ImageView
                             android:src="@drawable/halmate_schedule_add"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerInParent="true"
                             />
 
@@ -271,16 +271,16 @@
                         android:src="@drawable/halmate_group_person"/>
 
                     <RelativeLayout
-                        android:layout_width="27.45dp"
-                        android:layout_height="27.45dp"
+                        android:layout_width="20.45dp"
+                        android:layout_height="20.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/schedule_add_btn">
 
                         <ImageView
                             android:src="@drawable/halmate_schedule_add"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerInParent="true"
                             />
 
@@ -305,16 +305,16 @@
                         android:src="@drawable/halmate_group_person"/>
 
                     <RelativeLayout
-                        android:layout_width="27.45dp"
-                        android:layout_height="27.45dp"
+                        android:layout_width="20.45dp"
+                        android:layout_height="20.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/schedule_add_btn">
 
                         <ImageView
                             android:src="@drawable/halmate_schedule_add"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerInParent="true"
                             />
 

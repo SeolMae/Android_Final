@@ -71,7 +71,7 @@ class HalmateFragment : Fragment(), View.OnClickListener {
         addFragment(HalmateScheduleFragment())
 
         //통신
-        var index = 1
+        var index = 7
         networkService = ApplicationController.instance.networkService
         requestManager = Glide.with(this)
         var halmateInformationResponse  = networkService.getHalmateInformation(index.toString())

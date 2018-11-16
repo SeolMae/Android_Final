@@ -1,6 +1,6 @@
 package com.team.halae
 
 data class HalmateScheduleData(
-        var month : Int,
-        var mon_sch : ArrayList<HalmateScheduleDataSCH>
+        var month : String,
+        var mon_sch : ArrayList<HalmateScheduleMonthSCH>
 )

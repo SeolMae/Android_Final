@@ -35,9 +35,8 @@ import kotlin.collections.ArrayList
 class HalmateScheduleFragment : Fragment() {
 
     lateinit var networkService: NetworkService
-
-
     lateinit var calendarView: LightCalendarView
+    var currentDay : ArrayList<Int> = ArrayList()
 
     private val formatter = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
 //    lateinit var scheduledDate : ArrayList<Int>
@@ -72,6 +71,12 @@ class HalmateScheduleFragment : Fragment() {
 
             override fun onDateSelected(date: Date) {
 
+
+                var s = date.toString()
+                s = s[8].toString() + s[9].toString()
+                Log.e("엥",s)
+                for(i in 0..currentDay.size){
+                }
                 startActivity(Intent(context, HalmateScheduleSelectActivity::class.java))
             }
 
@@ -84,8 +89,9 @@ class HalmateScheduleFragment : Fragment() {
 //                title.text = formatter.format(date)
 
 
-                var currentMonth = Calendar.MONTH
-                val index : Int = 0
+                var currentMonth = formatter.format(date)[0].toString() + formatter.format(date)[1].toString()
+
+                val index : Int = 7
                 networkService = ApplicationController.instance.networkService
                 var halmateScheduleInfoResponse  = networkService.getHalmateSchedule(index.toString())
                 halmateScheduleInfoResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
@@ -94,6 +100,30 @@ class HalmateScheduleFragment : Fragment() {
                     }
 
                     override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
+                        var size : Int = response!!.body().data.size
+                        Log.e("0","흠")
+
+                        var i = 0
+                        while(true){
+                            if(i == size){
+                                break
+                            }
+                            else{
+                                if(response.body().data[i].month == currentMonth){
+                                    var size2 = response.body().data[i].mon_sch.size
+                                    for(j in 0 until size2){
+                                        var date = response.body().data[i].mon_sch[j].date
+                                        date = date[8].toString() + date[9].toString()
+                                        currentDay.add(j,date.toInt())
+                                        Log.e("day", currentDay[j].toString())
+                                    }
+                                }
+                            }
+                            i++
+                        }
+
+
+
                         Log.e("통신성공",response!!.body().message)
                     }
 
@@ -102,9 +132,10 @@ class HalmateScheduleFragment : Fragment() {
 
 
                 calendar_month.setText(formatter.format(date))
+
                 Handler().postDelayed({
                     val cal = Calendar.getInstance()
-                    val dates = (1..31).filter { it % 2 == 0 }.map {
+                    val dates = (1..31).filter { isScheduled(it, currentDay) == true }.map {
                         cal.apply {
                             set(view.month.year + 1900, view.month.month, it)
                         }.time
@@ -135,7 +166,7 @@ class HalmateScheduleFragment : Fragment() {
 
     fun isScheduled(it : Int, dates : ArrayList<Int>) : Boolean {
         val i : Int = dates.size
-        for (j in 0 until i-1){
+        for (j in 0 until i){
             if(dates[j]==it){
                 return true
             }
