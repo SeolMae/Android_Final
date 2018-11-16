@@ -51,24 +51,7 @@ class HalmateScheduleFragment : Fragment() {
 //            startActivity(Intent(context, HalmateScheduleSelectActivity::class.java))
 //        }
 
-        val index : Int = 0
-        networkService = ApplicationController.instance.networkService
-        var halmateScheduleInfoResponse  = networkService.getHalmateSchedule(index.toString())
-        halmateScheduleInfoResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
-            override fun onFailure(call: Call<HalmateScheuleInfoResponse>?, t: Throwable?) {
-                Log.e("통신실패", t.toString())
-            }
 
-            override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
-                Log.e("통신성공",response!!.body().message)
-                //띠요옹 월별로 받아야되나 어쩌지이...
-//                scheduledDate[0] = 1
-//                scheduledDate[1] = 10
-//                scheduledDate[2] = 11
-            }
-
-
-        })
 
         return v
     }
@@ -99,6 +82,25 @@ class HalmateScheduleFragment : Fragment() {
             override fun onMonthSelected(date: Date, view: MonthView) {
 //                val title = view.findViewById<TextView>(R.id.calendar_month)
 //                title.text = formatter.format(date)
+
+
+                var currentMonth = Calendar.MONTH
+                val index : Int = 0
+                networkService = ApplicationController.instance.networkService
+                var halmateScheduleInfoResponse  = networkService.getHalmateSchedule(index.toString())
+                halmateScheduleInfoResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
+                    override fun onFailure(call: Call<HalmateScheuleInfoResponse>?, t: Throwable?) {
+                        Log.e("통신실패", t.toString())
+                    }
+
+                    override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
+                        Log.e("통신성공",response!!.body().message)
+                    }
+
+
+                })
+
+
                 calendar_month.setText(formatter.format(date))
                 Handler().postDelayed({
                     val cal = Calendar.getInstance()

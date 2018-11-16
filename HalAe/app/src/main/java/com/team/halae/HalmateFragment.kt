@@ -79,6 +79,8 @@ class HalmateFragment : Fragment(), View.OnClickListener {
             override fun onResponse(call: Call<HalmateInformationResponse>?, response: Response<HalmateInformationResponse>?) {
                 if(response!!.isSuccessful){
 //                    halmate_info_image.setImage(response.body().result.hal_img.)
+                    Glide.with(context).load(response.body().result.hal_img).into(halmate_info_image)
+                    halmate_info_name.text = response.body().result.hal_name
                     halmate_add.text = response.body().result.hal_address
                     halmate_phone.text = response.body().result.hal_phone
                     halmate_info_vol.text = "봉사자 " + response.body().result.vol_cnt.toString() + "명"

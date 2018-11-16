@@ -32,7 +32,9 @@ class KakaoSignupActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //networkService = ApplicationController.instance!!.networkService
+        Log.e("1","하아")
         requestMe()
+        Log.e("2","하아아")
     }
 
     /**
@@ -104,8 +106,8 @@ class KakaoSignupActivity : Activity() {
     }
 
     private fun redirectMainActivity() {
-        var intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("token", token)
+        var intent = Intent(this, MainTabActivity::class.java)
+        intent.putExtra("token1", token)
         Log.v("here", token)
         startActivity(intent)
 

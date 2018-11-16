@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="71dp">
+        android:layout_height="80dp">
 
         <TextView
             android:id="@+id/group_title_text"
@@ -20,6 +20,7 @@
             android:layout_marginTop="5dp"/>
 
         <TextView
+            android:id="@+id/group_intro"
             android:layout_width="318dp"
             android:layout_height="wrap_content"
             android:text="저희 그룹은 주로 할머니와 반주를 자주 하며, 할머니와 유튜브
@@ -85,6 +86,7 @@
 
                 //1
                 <RelativeLayout
+                    android:id="@+id/group_add1"
                     android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -97,17 +99,29 @@
                         android:layout_height="60dp"
                         android:src="@drawable/halmate_group_person"/>
 
-                    <ImageView
+
+                    <RelativeLayout
                         android:layout_width="27.45dp"
                         android:layout_height="27.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/halmate_group_on"/>
+                        android:background="@drawable/schedule_add_btn">
+
+                        <ImageView
+                            android:src="@drawable/halmate_schedule_add"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
                 //2
                 <RelativeLayout
+                    android:id="@+id/group_add2"
                     android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -120,17 +134,28 @@
                         android:layout_height="60dp"
                         android:src="@drawable/halmate_group_person"/>
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="27.45dp"
                         android:layout_height="27.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/halmate_group_on"/>
+                        android:background="@drawable/schedule_add_btn">
+
+                        <ImageView
+                            android:src="@drawable/halmate_schedule_add"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
                 //3
                 <RelativeLayout
+                    android:id="@+id/group_add3"
                     android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -143,17 +168,28 @@
                         android:layout_height="60dp"
                         android:src="@drawable/halmate_group_person"/>
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="27.45dp"
                         android:layout_height="27.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/halmate_group_on"/>
+                        android:background="@drawable/schedule_add_btn">
+
+                        <ImageView
+                            android:src="@drawable/halmate_schedule_add"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
                 //4
                 <RelativeLayout
+                    android:id="@+id/group_add4"
                     android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -166,19 +202,29 @@
                         android:layout_height="60dp"
                         android:src="@drawable/halmate_group_person"/>
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="27.45dp"
                         android:layout_height="27.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/halmate_group_on"/>
+                        android:background="@drawable/schedule_add_btn">
+
+                        <ImageView
+                            android:src="@drawable/halmate_schedule_add"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
                 //5
                 <RelativeLayout
                     android:id="@+id/group_add5"
-                    android:visibility="visible"
+                    android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginLeft="12dp"
@@ -190,17 +236,28 @@
                         android:layout_height="60dp"
                         android:src="@drawable/halmate_group_person"/>
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="27.45dp"
                         android:layout_height="27.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/halmate_group_on"/>
+                        android:background="@drawable/schedule_add_btn">
+
+                        <ImageView
+                            android:src="@drawable/halmate_schedule_add"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
                 //6
                 <RelativeLayout
+                    android:id="@+id/group_add6"
                     android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -213,17 +270,28 @@
                         android:layout_height="60dp"
                         android:src="@drawable/halmate_group_person"/>
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="27.45dp"
                         android:layout_height="27.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/halmate_group_on"/>
+                        android:background="@drawable/schedule_add_btn">
+
+                        <ImageView
+                            android:src="@drawable/halmate_schedule_add"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
                 //7
                 <RelativeLayout
+                    android:id="@+id/group_add7"
                     android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -236,12 +304,22 @@
                         android:layout_height="60dp"
                         android:src="@drawable/halmate_group_person"/>
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="27.45dp"
                         android:layout_height="27.45dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/halmate_group_on"/>
+                        android:background="@drawable/schedule_add_btn">
+
+                        <ImageView
+                            android:src="@drawable/halmate_schedule_add"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 

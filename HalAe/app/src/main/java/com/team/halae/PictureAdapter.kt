@@ -5,8 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.RequestManager
 
-class PictureAdapter(var pictureItem : ArrayList<Int>) : RecyclerView.Adapter<PictureViewHolder>() {
+class PictureAdapter(var pictureItem : ArrayList<HalmateBoardResult>, var requestManager: RequestManager) : RecyclerView.Adapter<PictureViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PictureViewHolder {
         val mainView : View = LayoutInflater.from(parent.context).inflate(R.layout.halmate_picture_item, parent, false)
@@ -16,7 +17,6 @@ class PictureAdapter(var pictureItem : ArrayList<Int>) : RecyclerView.Adapter<Pi
     override fun getItemCount(): Int = pictureItem.size
 
     override fun onBindViewHolder(holder: PictureViewHolder, position: Int) {
-        holder.pictureImage.setImageResource(pictureItem[position])
-
+        requestManager.load(pictureItem[position].board_img).into(holder.pictureImage)
     }
 }

@@ -100,6 +100,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         override fun onSessionOpenFailed(exception: KakaoException?) {
+            Log.e("너니","..?")
             if (exception != null) {
             }
             setContentView(R.layout.activity_login) // 세션 연결이 실패했을때
