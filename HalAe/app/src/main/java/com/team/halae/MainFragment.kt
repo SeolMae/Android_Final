@@ -50,6 +50,7 @@ class MainFragment : Fragment(){
         myHalLists!!.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
 
         //token = getIntent().getStringExtra("token")
+        Log.v("tokenbabo", token)
         token=arguments!!.getString("token")
 
 

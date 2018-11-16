@@ -89,7 +89,15 @@ class KakaoSignupActivity : Activity() {
                                 ApplicationController.instance!!.makeToast("로그인 성공")
                                 token = response!!.body().data.token
                                 Log.v("tokentoken", token)
-                                redirectMainActivity() // 로그인 성공시 MainActivity로
+                                if(response!!.body().data.flag==0) {
+                                    redirectMainActivity() // 로그인 성공시 MainActivity로
+                                }
+                                else{
+                                    var intent = Intent(this@KakaoSignupActivity, Login1Activity::class.java)
+                                    intent.putExtra("token1", token)
+                                    Log.v("here", token)
+                                    startActivity(intent)
+                                }
                             }
                         }
                     }
@@ -104,8 +112,8 @@ class KakaoSignupActivity : Activity() {
     }
 
     private fun redirectMainActivity() {
-        var intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("token", token)
+        var intent = Intent(this, MainTabActivity::class.java)
+        intent.putExtra("token1", token)
         Log.v("here", token)
         startActivity(intent)
 
