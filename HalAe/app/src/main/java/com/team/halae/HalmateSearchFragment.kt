@@ -128,11 +128,13 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
             }
         }
 
-
-
         var posthalmatefilering = networkService!!.postHalmateFitering(filteringrequestbody!!)
+
+        Log.v("sylee", filteringrequestbody.toString())
+
         posthalmatefilering.enqueue(object : retrofit2.Callback<FilteringPostResponse> {
             override fun onResponse(call: Call<FilteringPostResponse>?, response: Response<FilteringPostResponse>?) {
+
                 Log.v("sylee",response!!.message().toString())
                 if(response!!.isSuccessful){
                     Log.v("sylee","halmate search isSuccessful")
@@ -140,17 +142,18 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                     if(response.body().message.equals("get halmate schedule information Success")){
                         Log.v("sylee", response.body().result.toString())
 
+                        setResultBody.clear()
+
                         var sethalname : String
                         var sethalinterest : String = ""
 
-                        for(i  in 0..(response.body().result.size)-1){
+                        for(i in 0..(response.body().result.size)-1){
 
                             if(response.body().result[i].hal_gender == 0){
                                 sethalname = response.body().result[i].hal_name + " 할아버지"
                             }else{
                                 sethalname = response.body().result[i].hal_name + " 할머니"
                             }
-
 
                             sethalinterest = ""
 
@@ -178,10 +181,9 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
 
 
             override fun onFailure(call: Call<FilteringPostResponse>?, t: Throwable?) {
-                //ApplicationController.instance!!.makeToast("onFailure")
-                Log.v("sylee","default list onfailure")
-                Log.v("sylee", t.toString())
+
                 Log.v("sylee",filteringrequestbody.toString())
+                Log.v("sylee", t.toString())
 
             }
 
@@ -199,11 +201,11 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
             //클릭한 항목의 인덱스를 저장
             val idx : Int = searchRecyclerView!!.getChildAdapterPosition(v!!)
 
-            val img : String? = searchResult[idx].image
-            val name : String? = searchResult[idx].name
-            val age : Int? = searchResult[idx].age
-            val address : String? = searchResult[idx].address
-            val interest : String? = searchResult[idx].interest
+            val img : String? = setResultBody[idx].image
+            val name : String? = setResultBody[idx].name
+            val age : Int? = setResultBody[idx].age
+            val address : String? = setResultBody[idx].address
+            val interest : String? = setResultBody[idx].interest
 
             val intent = Intent(activity, SearchDetailActivity::class.java)
 

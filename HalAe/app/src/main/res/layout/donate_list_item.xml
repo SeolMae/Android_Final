@@ -3,7 +3,8 @@
     android:id="@+id/danate_item_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="125dp">
+    android:layout_height="125dp"
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
 
             <ImageView
                 android:id="@+id/donate_halmate_img"
-                android:layout_width="134dp"
+                android:layout_width="140dp"
                 android:layout_height="124dp"
                 />
 
@@ -32,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="최고운 할머니는 맥북이 필요해요."
-                android:textSize="14dp"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:layout_marginLeft="11dp"
@@ -44,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="최고운할머니(76)"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:textStyle="normal"
                 android:textColor="#706A6A"
                 android:layout_marginLeft="16dp"
@@ -64,14 +65,14 @@
                 android:id="@+id/donate_list_item_progress_bar"
                 style= "@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:progressDrawable="@drawable/progress_bar_custom"
-                android:layout_width="200dp"
+                android:layout_width="250dp"
                 android:layout_height="9dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginTop="10dp"
                 />
             
             <RelativeLayout
-                android:layout_width="200dp"
+                android:layout_width="250dp"
                 android:layout_height="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginLeft="11dp">

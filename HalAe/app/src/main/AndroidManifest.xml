@@ -12,13 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainTabActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainTabActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".MypageActivity" />
         <activity android:name=".VolunteerTimeActivity" />
@@ -29,6 +23,7 @@
         <activity android:name=".BoardWriteActivity" />
         <activity android:name=".BoardCommentActivity" />
         <activity android:name=".BoardDetailActivity" />
+        <activity android:name=".SearchDetailActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".Login1Activity" />
         <!--<activity android:name=".MainTabActivity"/>-->
@@ -41,7 +36,14 @@
         <activity android:name=".LoginActivity3"></activity>
         <activity android:name=".LoginSearchActivity1"></activity>
         <activity android:name=".LoginSearchActivity2"></activity>
-        <activity android:name=".SplashActivity"/>
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"

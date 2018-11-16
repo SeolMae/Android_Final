@@ -113,6 +113,6 @@ interface NetworkService {
     //기부글 리스트 가져오기
     @GET("donate/list/{align}")
     fun getdonateList(
-            @Path("align") align : String
+            @Path("align") align : Int
     ) : retrofit2.Call<DonateListResponse>
 }

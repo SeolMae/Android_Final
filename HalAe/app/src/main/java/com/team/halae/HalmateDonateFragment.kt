@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import android.widget.Spinner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
@@ -25,7 +26,7 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
     lateinit var mGlideRequestManager: RequestManager
 
     var alignspinner: Spinner? = null
-    var align: String? = null
+    var align: Int? = null
     var halnameandage: String? = null
     private var networkService: NetworkService? = null
 
@@ -39,9 +40,6 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
 
         //------------------정렬 스피너------------------------
         alignspinner = v.findViewById(R.id.donate_align_spinner)
-
-        var alignAdapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.정렬))
-        alignspinner!!.adapter = alignAdapter
         alignspinner!!.setSelection(0)
         alignspinner!!.setOnItemSelectedListener(this)
 
@@ -61,8 +59,14 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
-        align = alignspinner!!.selectedItem.toString()
-        Log.v("sylee", align)
+        var alignstr = alignspinner!!.selectedItem.toString()
+        Log.v("sylee", alignstr)
+
+        if( alignstr == "마감임박순") align = 0
+        else if(alignstr == "최신순") align = 1
+        else if(alignstr == "모금액적은순") align = 2
+        else if(alignstr == "모금액많은순") align = 3
+
 
         var getdonatelist = networkService!!.getdonateList(align!!)
 
@@ -78,22 +82,23 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
             override fun onResponse(call: retrofit2.Call<DonateListResponse>?, response: Response<DonateListResponse>?) {
                 if (response!!.isSuccessful) {
                     if (response.body().message.equals("get donate list Success")) {
-                        Log.v("sylee", "status code 201")
+
+                        donateList.clear()
                         Log.v("sylee", response.body().toString())
-                        donateAdapter = DonateListAdapter(donateList, mGlideRequestManager)
-                        donateRecyclerView!!.adapter = donateAdapter
 
                         //결과 값 array 에 저장
                         var resultarry = response.body().result
                         var resultlen = resultarry.size
-                        Log.v("sylee", resultlen.toString())
+
 
                         for (i in 0..(resultlen-1)) {
-                            Log.v("sylee", "A")
+
 
                             if (response.body().result[i].hal_gender == 0) {
+                                halnameandage = ""
                                 halnameandage = response.body().result[i].hal_name + " 할아버지(" + response.body().result[i].hal_age.toString() + ")"
                             } else if (response.body().result[i].hal_gender == 1) {
+                                halnameandage = ""
                                 halnameandage = response.body().result[i].hal_name + " 할아버지(" + response.body().result[i].hal_age.toString() + ")"
                             }
 
@@ -101,12 +106,18 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                             var nowmoney = response.body().result[i].now_money.toString() + " 원"
                             var percentage = ((response.body().result[i].now_money / response.body().result[i].goal_money) * 100).toString() + "%"
                             var leftdays = "종료 6일 전"
+                            var progressbar : ProgressBar = ProgressBar(context)
 
-                            //donateList.add(DonateListItem(response.body().result[i].hal_img, response.body().result[i].don_title, halnameandage!!, goalmoney, nowmoney, percentage, leftdays))
-                            //Glide.with(context).load(response.body().result[i].hal_img).to(donate_halmate_img)
+                            var tempDonateItem : DonateListItem
+                                    = DonateListItem(response.body().result[i].hal_img, response.body().result[i].don_title,
+                                    halnameandage!!, goalmoney, nowmoney, progressbar ,percentage, leftdays)
 
+                            donateList.add(tempDonateItem)
+                            donateAdapter = DonateListAdapter(donateList, mGlideRequestManager)
+                            donateRecyclerView!!.adapter = donateAdapter
 
                         }
+
                     }
                 }
             }
