@@ -96,15 +96,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     inner class SessionCallback : ISessionCallback {
 
         override fun onSessionOpened() {
-            redirectSignupActivity()  // 세션 연결성공 시 redirectSignupActivity() 호출
+            redirectSignupActivity()  // 세션 연결 성공 시 redirectSignupActivity() 호출
         }
 
         override fun onSessionOpenFailed(exception: KakaoException?) {
             Log.e("너니","..?")
             if (exception != null) {
             }
-            setContentView(R.layout.activity_login) // 세션 연결이 실패했을때
-        }                                            // 로그인화면을 다시 불러옴
+            setContentView(R.layout.activity_login) // 세션 연결이 실패했을때 로그인화면을 다시 불러옴
+        }
     }
 
     protected fun redirectSignupActivity() {
