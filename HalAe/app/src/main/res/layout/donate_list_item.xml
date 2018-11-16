@@ -17,6 +17,7 @@
 
             <ImageView
                 android:id="@+id/donate_halmate_img"
+                android:scaleType="fitXY"
                 android:layout_width="140dp"
                 android:layout_height="124dp"
                 />

@@ -42,6 +42,9 @@
         <activity android:name=".LoginActivity3" />
         <activity android:name=".LoginSearchActivity1" />
         <activity android:name=".LoginSearchActivity2" />
+        <activity android:name=".SearchDetailActivity" />
+        <activity android:name=".DonateDatailActivity" />
+        <activity android:name=".SearchMagnifyingActivity" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"

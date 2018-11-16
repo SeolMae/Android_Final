@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
+    android:layout_width="170dp"
     android:layout_height="135dp"
     android:orientation="vertical"
     android:layout_marginRight="7dp"
     android:layout_marginLeft="7dp"
-    android:layout_marginBottom="13dp">
+    android:layout_marginBottom="13dp"
+    android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/halmate_search_img"
-        android:layout_width="150dp"
+        android:layout_width="170dp"
         android:layout_height="80dp"
+        android:scaleType="fitXY"
         android:src="@drawable/sample"/>
 
     <LinearLayout
@@ -28,6 +30,7 @@
             android:layout_height="wrap_content"
             android:textSize="11dp"
             android:text="최서정 할머니"
+            android:textColor="#000000"
             />
 
         <TextView
@@ -35,6 +38,7 @@
             android:layout_height="wrap_content"
             android:text=","
             android:textSize="11dp"
+            android:textColor="#000000"
             />
 
         <TextView
@@ -43,6 +47,7 @@
             android:layout_height="wrap_content"
             android:textSize="11dp"
             android:text="78"
+            android:textColor="#000000"
             />
 
 
@@ -50,7 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="11dp"
-            android:text="세"/>
+            android:text="세"
+            android:textColor="#000000"/>
     </LinearLayout>
 
     <RelativeLayout
@@ -62,6 +68,7 @@
             android:layout_height="wrap_content"
             android:text="서울특별시 성북구 길음동"
             android:textSize="10dp"
+            android:textColor="#000000"
             />
     </RelativeLayout >
     
@@ -74,7 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="10dp"
-            android:text="#사진#그림"/>
+            android:text="#사진#그림"
+            android:textColor="#000000"/>
 
     </RelativeLayout>
 

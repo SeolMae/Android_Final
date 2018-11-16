@@ -97,14 +97,12 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
         when(p0){
             locationSpinner -> {
                 Log.v("sylee", "location spinner test")
-                Toast.makeText(context, "location",Toast.LENGTH_LONG).show()
                 location = locationSpinner!!.selectedItem.toString()
                 if(location == "위치") filteringrequestbody!!.hal_address = "위치"
                 filteringrequestbody!!.hal_address = location
             }
             genderSpinner -> {
                 Log.v("sylee", "gender spinner test")
-                Toast.makeText(context, "gender" + p2, Toast.LENGTH_LONG).show()
                 gender = genderSpinner!!.selectedItem.toString()
                 Log.v("sylee", gender)
 
@@ -120,7 +118,6 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
             }
             interestSpinner ->{
                 Log.v("sylee", "interest spinner test")
-                Toast.makeText(context, "interest" + p2, Toast.LENGTH_LONG).show()
                 interest = interestSpinner!!.selectedItem.toString()
                 Log.v("sylee", interest)
                 if(interest == "관심분야") filteringrequestbody!!.hal_interest = "관심분야"
@@ -191,6 +188,7 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
     }
 
     override fun onClick(v: View?) {    //onclicklistner
+        Log.v("sylee", "여기는 ?? 들어올듯?")
 
         when(v){
             searchbtn ->{

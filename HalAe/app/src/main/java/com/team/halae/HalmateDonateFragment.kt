@@ -25,6 +25,10 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
     lateinit var donateAdapter: DonateListAdapter
     lateinit var mGlideRequestManager: RequestManager
 
+    private var contentArry : ArrayList<String> = ArrayList()
+    private var startdayArry : ArrayList<String> = ArrayList()
+    private var enddayArray : ArrayList<String> = ArrayList()
+
     var alignspinner: Spinner? = null
     var align: Int? = null
     var halnameandage: String? = null
@@ -45,9 +49,8 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
 
         //------------------------------기부글 recyclerview---------------------------------
         donateList = ArrayList<DonateListItem>()
-        donateRecyclerView!!.layoutManager = LinearLayoutManager(context)
+        donateRecyclerView!!.layoutManager =  LinearLayoutManager(context)
         donateRecyclerView!!.setOnClickListener(this)
-
         return v
 
 
@@ -104,9 +107,29 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
 
                             var goalmoney = "모금 목표 금액 : " + response.body().result[i].goal_money.toString() + "원"
                             var nowmoney = response.body().result[i].now_money.toString() + " 원"
-                            var percentage = ((response.body().result[i].now_money / response.body().result[i].goal_money) * 100).toString() + "%"
+
+                            var nowmoneynum : Float = response.body().result[i].now_money.toFloat()
+                            var goalmoneynum : Float = response.body().result[i].goal_money.toFloat()
+
+                            Log.v("sylee", nowmoneynum.toString())
+                            Log.v("sylee", goalmoneynum.toString())
+
+                            var percentagenum  : Float = ((nowmoneynum / goalmoneynum) * 100)
+                            Log.v("sylee" , (nowmoneynum / goalmoneynum).toString())
+                            Log.v("sylee", percentagenum.toString())
+
+
+                            var percentage = percentagenum.toInt().toString() + "%"
+                            Log.v("sylee", percentage)
                             var leftdays = "종료 6일 전"
                             var progressbar : ProgressBar = ProgressBar(context)
+
+                            Log.v("sylee", response.body().result[0].don_text)
+                            contentArry.add(response.body().result[i].don_text)
+                            startdayArry.add(response.body().result[i].start_date)
+                            Log.v("sylee", response.body().result[i].finish_date)
+                            enddayArray.add(response.body().result[i].finish_date)
+
 
                             var tempDonateItem : DonateListItem
                                     = DonateListItem(response.body().result[i].hal_img, response.body().result[i].don_title,
@@ -115,6 +138,7 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                             donateList.add(tempDonateItem)
                             donateAdapter = DonateListAdapter(donateList, mGlideRequestManager)
                             donateRecyclerView!!.adapter = donateAdapter
+                            donateAdapter!!.setOnItemClickListner(this@HalmateDonateFragment)
 
                         }
 
@@ -125,29 +149,38 @@ class HalmateDonateFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
     }
 
     override fun onClick(v: View?) {
+        Log.v("sylee","들어오니??")
         //클릭한 항목의 인덱스를 저장
         val idx: Int = donateRecyclerView!!.getChildAdapterPosition(v!!)
 
         val img: String? = donateList[idx].donateimg
         val title: String? = donateList[idx].donatetitle
+        val content : String? = contentArry[idx]
         val name: String? = donateList[idx].donatehalmatename
         val goalmoney: String? = donateList[idx].donategoalmoney
         val nowmoney: String? = donateList[idx].donatenowmoney
+        val startdate : String? = startdayArry[idx]
+        val enddate : String? = enddayArray[idx]
+        Log.v("sysy", enddate)
         val percent: String? = donateList[idx].donatepercent
         val leftdays: String? = donateList[idx].donateleftday
+
+        Log.v("sylee", donateList[idx].toString())
 
         val intent = Intent(activity, DonateDatailActivity::class.java)
 
         intent.putExtra("img", img)
+        intent.putExtra("title", title)
         intent.putExtra("name", name)
-        intent.putExtra("age", title)
+        intent.putExtra("content", content)
         intent.putExtra("goalmoney", goalmoney)
         intent.putExtra("nowmoney", nowmoney)
+        intent.putExtra("startdate", startdate)
+        intent.putExtra("enddaate", enddate)
         intent.putExtra("percent", percent)
         intent.putExtra("leftdays", leftdays)
 
         startActivity(intent)
-
     }
 }
 
