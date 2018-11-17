@@ -7,6 +7,7 @@ import android.icu.util.Calendar
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v4.app.INotificationSideChannel
 import android.util.EventLog
 import android.view.LayoutInflater
 import android.view.View
@@ -22,17 +23,23 @@ import jp.co.recruit_mp.android.lightcalendarview.MonthView
 import jp.co.recruit_mp.android.lightcalendarview.WeekDay
 import jp.co.recruit_mp.android.lightcalendarview.accent.Accent
 import jp.co.recruit_mp.android.lightcalendarview.accent.DotAccent
+import kotlinx.android.synthetic.main.fragment_halmate.*
 import kotlinx.android.synthetic.main.fragment_halmate_schedule.*
 import kotlinx.android.synthetic.main.fragment_halmate_schedule.view.*
+import retrofit2.Call
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class HalmateScheduleFragment : Fragment() {
 
+    lateinit var networkService: NetworkService
     lateinit var calendarView: LightCalendarView
+    var currentDay : ArrayList<Int> = ArrayList()
 
     private val formatter = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
+//    lateinit var scheduledDate : ArrayList<Int>
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -42,6 +49,7 @@ class HalmateScheduleFragment : Fragment() {
 //        materialCalendarView?.setOnDateChangeListener{view, year, month, dayOfMonth ->
 //            startActivity(Intent(context, HalmateScheduleSelectActivity::class.java))
 //        }
+
 
 
         return v
@@ -63,19 +71,71 @@ class HalmateScheduleFragment : Fragment() {
 
             override fun onDateSelected(date: Date) {
 
+
+                var s = date.toString()
+                s = s[8].toString() + s[9].toString()
+                Log.e("엥",s)
+                for(i in 0..currentDay.size){
+                }
                 startActivity(Intent(context, HalmateScheduleSelectActivity::class.java))
             }
 
 
             //map에 date만 통신후에 수정하기!
             //isScheduled 함수 짜서 isScheduled(it) 가 true 인 날짜에만 dotted!
+//            isScheduled(it,scheduledDate ) == true
             override fun onMonthSelected(date: Date, view: MonthView) {
 //                val title = view.findViewById<TextView>(R.id.calendar_month)
 //                title.text = formatter.format(date)
+
+
+                var currentMonth = formatter.format(date)[0].toString() + formatter.format(date)[1].toString()
+
+                val index : Int = 7
+                networkService = ApplicationController.instance.networkService
+                var halmateScheduleInfoResponse  = networkService.getHalmateSchedule(index.toString())
+                halmateScheduleInfoResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
+                    override fun onFailure(call: Call<HalmateScheuleInfoResponse>?, t: Throwable?) {
+                        Log.e("통신실패", t.toString())
+                    }
+
+                    override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
+                        var size : Int = response!!.body().data.size
+                        Log.e("0","흠")
+
+                        var i = 0
+                        while(true){
+                            if(i == size){
+                                break
+                            }
+                            else{
+                                if(response.body().data[i].month == currentMonth){
+                                    var size2 = response.body().data[i].mon_sch.size
+                                    for(j in 0 until size2){
+                                        var date = response.body().data[i].mon_sch[j].date
+                                        date = date[8].toString() + date[9].toString()
+                                        currentDay.add(j,date.toInt())
+                                        Log.e("day", currentDay[j].toString())
+                                    }
+                                }
+                            }
+                            i++
+                        }
+
+
+
+                        Log.e("통신성공",response!!.body().message)
+                    }
+
+
+                })
+
+
                 calendar_month.setText(formatter.format(date))
+
                 Handler().postDelayed({
                     val cal = Calendar.getInstance()
-                    val dates = (1..31).filter { it % 2 == 0 }.map {
+                    val dates = (1..31).filter { isScheduled(it, currentDay) == true }.map {
                         cal.apply {
                             set(view.month.year + 1900, view.month.month, it)
                         }.time
@@ -102,5 +162,15 @@ class HalmateScheduleFragment : Fragment() {
         }
 
 
+    }
+
+    fun isScheduled(it : Int, dates : ArrayList<Int>) : Boolean {
+        val i : Int = dates.size
+        for (j in 0 until i){
+            if(dates[j]==it){
+                return true
+            }
+        }
+        return false
     }
 }

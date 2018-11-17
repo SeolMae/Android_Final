@@ -32,7 +32,9 @@ class KakaoSignupActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //networkService = ApplicationController.instance!!.networkService
+        Log.e("1","하아")
         requestMe()
+        Log.e("2","하아아")
     }
 
     /**
