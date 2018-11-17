@@ -17,6 +17,7 @@ import retrofit2.Call
 import retrofit2.Response
 
 class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
+    var day = intent.getStringExtra("nowDay")
     override fun onClick(v: View?) {
         when(v){
             schedule_select_add->{
@@ -33,6 +34,7 @@ class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_halmate_select_date)
+        schedule_select_day.text = day
 
         schedule_select_add.setOnClickListener(this)
 
