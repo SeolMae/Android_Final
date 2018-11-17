@@ -44,6 +44,7 @@ class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
         halmateScheduleResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
             override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
                 if(response!!.isSuccessful){
+//                    scheduleItems = response.body().data
                     scheduleAdapter = ScheduleAdapter(scheduleItems,this@HalmateScheduleSelectActivity)
                     schedule_list.adapter = scheduleAdapter
                     Log.e("안녕",response.body().message)

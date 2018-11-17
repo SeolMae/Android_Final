@@ -26,6 +26,7 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
             main_search_tab->{
                 clearSelected()
                 main_search_tab.isSelected = true
+                replaceFragment(HalmateSearchFragment())
             }
             main_sns_tab->{
                 clearSelected()
@@ -34,6 +35,7 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
             main_donate_tab->{
                 clearSelected()
                 main_donate_tab.isSelected = true
+                replaceFragment(HalmateDonateFragment())
             }
             main_mypage_tab->{
                 clearSelected()
@@ -50,14 +52,14 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
 
         token = getIntent().getStringExtra("token1")
 
-//        addFragment(HalmateFragment())
+        addFragment(HalmateFragment())
 
         var fragment : Fragment = MainFragment()
         var bundle : Bundle = Bundle()
         bundle.putString("token", token)
         fragment!!.arguments = bundle
 
-        addFragment(MainFragment())
+//        addFragment(MainFragment())
         main_home_tab.isSelected = true
         main_home_tab.setOnClickListener(this)
         main_search_tab.setOnClickListener(this)
