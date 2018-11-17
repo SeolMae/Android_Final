@@ -52,14 +52,14 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
 
         token = getIntent().getStringExtra("token1")
 
-        addFragment(HalmateFragment())
+//        addFragment(HalmateFragment())
 
         var fragment : Fragment = MainFragment()
         var bundle : Bundle = Bundle()
         bundle.putString("token", token)
         fragment!!.arguments = bundle
 
-//        addFragment(MainFragment())
+        addFragment(MainFragment())
         main_home_tab.isSelected = true
         main_home_tab.setOnClickListener(this)
         main_search_tab.setOnClickListener(this)
