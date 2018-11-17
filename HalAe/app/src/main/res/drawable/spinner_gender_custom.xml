@@ -4,7 +4,7 @@
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="100dp"
-        android:layout_height="30dp">
+        android:layout_height="30dp" >
 
         <!--<TextView-->
             <!--android:id="@+id/search_spinner_gender_text"-->
