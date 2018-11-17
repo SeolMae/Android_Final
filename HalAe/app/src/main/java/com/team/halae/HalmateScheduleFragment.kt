@@ -41,6 +41,8 @@ class HalmateScheduleFragment : Fragment() {
     private val formatter = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
 //    lateinit var scheduledDate : ArrayList<Int>
 
+    var monthIndex = 0
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_halmate_schedule,container,false)
@@ -71,13 +73,26 @@ class HalmateScheduleFragment : Fragment() {
 
             override fun onDateSelected(date: Date) {
 
+                val intent = Intent(context,HalmateScheduleSelectActivity::class.java)
 
+//                var currentMonth = formatter.format(date)[0].toString() + formatter.format(date)[1].toString()
+
+                Log.e("모야",monthIndex.toString())
                 var s = date.toString()
                 s = s[8].toString() + s[9].toString()
                 Log.e("엥",s)
-                for(i in 0..currentDay.size){
+                for(i in 0 until currentDay.size){
+                    Log.e("포문","ㅇㅇ")
+                    if(currentDay[i] == s.toInt()){
+                        Log.e("이프문",i.toString())
+                        intent.putExtra("selectDay",i.toString())
+                    }
+                    else{
+                        intent.putExtra("selectDay","empty")
+                    }
                 }
-                startActivity(Intent(context, HalmateScheduleSelectActivity::class.java))
+                intent.putExtra("selectMonth",monthIndex.toString())
+                startActivity(intent)
             }
 
 
@@ -89,6 +104,7 @@ class HalmateScheduleFragment : Fragment() {
 //                title.text = formatter.format(date)
 
 
+                currentDay.clear()
                 var currentMonth = formatter.format(date)[0].toString() + formatter.format(date)[1].toString()
 
                 val index : Int = 7
@@ -110,6 +126,7 @@ class HalmateScheduleFragment : Fragment() {
                             }
                             else{
                                 if(response.body().data[i].month == currentMonth){
+                                    monthIndex = i
                                     var size2 = response.body().data[i].mon_sch.size
                                     for(j in 0 until size2){
                                         var date = response.body().data[i].mon_sch[j].date
