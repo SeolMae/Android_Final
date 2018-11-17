@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
     //타이틀바
 
@@ -20,6 +21,7 @@
             android:layout_centerInParent="true"
             android:text="기부하기"
             android:textSize="20dp"
+            android:textColor="#606060"
             android:textStyle="bold" />
 
 
@@ -30,7 +32,7 @@
         android:layout_height="2dp" />
 
     <RelativeLayout
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal">
@@ -39,10 +41,12 @@
             android:id="@+id/donate_align_spinner"
             android:layout_width="125dp"
             android:layout_height="23dp"
+            android:autofillHints=""
+            android:layout_marginRight="8dp"
             android:spinnerMode="dropdown"
             android:entries="@array/정렬"
+            style="@style/alignspinner"
             android:layout_alignParentRight="true"/>
-
 
     </RelativeLayout>
 
@@ -55,13 +59,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/donate_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent" >
 
     </android.support.v7.widget.RecyclerView>
-
-
-
-
 
 </LinearLayout>

@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
     //타이틀바
     <RelativeLayout
@@ -14,6 +15,7 @@
             android:layout_height="wrap_content"
             android:text="우리 할메이트"
             android:textSize="20dp"
+            android:textColor="#707070"
             android:textStyle="bold"
             android:layout_centerInParent="true"
             />

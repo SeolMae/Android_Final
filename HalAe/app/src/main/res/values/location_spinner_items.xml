@@ -2,9 +2,13 @@
 <resources>
     <string-array name="위치">
         <item>위치</item>
-        <item>경기도 양평군 양평읍</item>
-        <item>서울특별시 성북구 길음동</item>
-        <item>인천광역시 부평구 상곡동</item>
-        <item>서울특별시 중구 신당동</item>
+        <item>서울시 중구 서애로1길</item>
+        <item>서울시 중구 서애로</item>
+        <item>서울시 중구 퇴계로</item>
+        <item>서울시 중구 동호로</item>
+        <item>서울시 중구 장충단로6가길</item>
+        <item>서울시 송파구 양재대로</item>
+        <item>서울시 송파구 올림픽로</item>
+        <item>서울시 송파구 오금로</item>
     </string-array>
 </resources>

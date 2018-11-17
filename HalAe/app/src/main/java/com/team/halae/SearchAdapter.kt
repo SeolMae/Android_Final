@@ -23,8 +23,10 @@ class SearchAdapter(var searchResult : ArrayList<SearchItem>, var glideRequest :
     override fun getItemCount(): Int = searchResult.size
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
+        var searchViewHolder = holder as SearchViewHolder
+
         //holder.halmateImg.setImageResource(searchResult[position].image)
-        glideRequest.load(searchResult[position].image)
+        glideRequest.load(searchResult[position].image).into(searchViewHolder!!.halmateImg)
         holder.halmateName.setText(searchResult[position].name)
         holder.halmateAge.setText(searchResult[position].age.toString())
         holder.halmateAddress.setText(searchResult[position].address)

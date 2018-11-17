@@ -33,11 +33,12 @@ class SearchDetailActivity : AppCompatActivity(), View.OnClickListener {
         volunteerRecyclerview!!.layoutManager = horizonmanager1
 
         volunteerList = ArrayList<SearchVolunteerItem>()
-        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "최고운"))
+
+/*        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "최고운"))
         volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "이선영"))
         volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "신예지"))
         volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "이승민"))
-        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "박선희"))
+        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "박선희"))*/
 
         volunteerAdapter = SearchVolunteerAdapter(volunteerList!!)
 
