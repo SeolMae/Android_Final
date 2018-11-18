@@ -31,6 +31,7 @@ class MainFragment : Fragment(), View.OnClickListener{
 
 
         val hal_idx : Int? = myHalDatas!!.get(idx).hal_idx
+        Log.e("dhdld",hal_idx.toString())
 
         var fragment : Fragment = HalmateFragment()
         var bundle : Bundle = Bundle()

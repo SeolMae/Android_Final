@@ -1,6 +1,7 @@
 package com.team.halae
 
 import android.content.Intent
+import android.content.Intent.getIntent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -23,6 +24,7 @@ class HalmateFragment : Fragment(), View.OnClickListener {
 
     lateinit var networkService: NetworkService
     private var requestManager: RequestManager? = null
+    var index = 0
 
 
     override fun onClick(v: View?) {
@@ -30,25 +32,51 @@ class HalmateFragment : Fragment(), View.OnClickListener {
             halmate_schedule_tab->{
                 clearSelected()
                 halmate_schedule_tab.isSelected = true
-                replaceFragment(HalmateScheduleFragment())
+
+                var fragment : Fragment = HalmateScheduleFragment()
+                var bundle : Bundle = Bundle()
+                bundle.putInt("hal_idx", index!!)
+                fragment!!.arguments = bundle
+
+                replaceFragment(fragment)
+
             }
 
             halmate_picture_tab->{
                 clearSelected()
                 halmate_picture_tab.isSelected = true
-                replaceFragment(HalmatePictureFragment())
+
+                var fragment : Fragment = HalmatePictureFragment()
+                var bundle : Bundle = Bundle()
+                bundle.putInt("hal_idx", index!!)
+                fragment!!.arguments = bundle
+
+                replaceFragment(fragment)
             }
 
             halmate_board_tab->{
                 clearSelected()
                 halmate_board_tab.isSelected = true
-                replaceFragment(HalmateBoardFragment())
+
+                var fragment : Fragment = HalmateBoardFragment()
+                var bundle : Bundle = Bundle()
+                bundle.putInt("hal_idx", index!!)
+                fragment!!.arguments = bundle
+
+                replaceFragment(fragment)
             }
 
             halmate_group_tab->{
                 clearSelected()
                 halmate_group_tab.isSelected = true
-                replaceFragment(HalmateGroupFragment())
+
+                var fragment : Fragment = HalmateGroupFragment()
+                var bundle : Bundle = Bundle()
+                bundle.putInt("hal_idx", index!!)
+                fragment!!.arguments = bundle
+
+                replaceFragment(fragment)
+
                 halmate_message_icon.visibility = View.VISIBLE
             }
 
@@ -61,6 +89,8 @@ class HalmateFragment : Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_halmate, container, false)
 
+        val args = arguments
+        index = args!!.getInt("hal_idx")
         v.halmate_frame
         v.halmate_message_icon.setOnClickListener(this)
         v.halmate_schedule_tab.setOnClickListener(this)
@@ -68,10 +98,14 @@ class HalmateFragment : Fragment(), View.OnClickListener {
         v.halmate_board_tab.setOnClickListener(this)
         v.halmate_group_tab.setOnClickListener(this)
 
-        addFragment(HalmateScheduleFragment())
+        var fragment : Fragment = HalmateScheduleFragment()
+        var bundle : Bundle = Bundle()
+        bundle.putInt("hal_idx", index!!)
+        fragment!!.arguments = bundle
+        addFragment(fragment)
 
         //통신
-        var index = 7
+        Log.e("할메이트",index.toString())
         networkService = ApplicationController.instance.networkService
         requestManager = Glide.with(this)
         var halmateInformationResponse  = networkService.getHalmateInformation(index.toString())

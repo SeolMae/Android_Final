@@ -29,7 +29,8 @@ class HalmateGroupFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_halmate_group,container,false)
 
-        var index = 1
+        val args = arguments
+        val index = args!!.getInt("hal_idx")
         var recyclerView : RecyclerView = v.findViewById(R.id.halmate_group_list)
         networkService = ApplicationController.instance.networkService
         requestManager = Glide.with(this)

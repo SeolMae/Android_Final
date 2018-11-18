@@ -17,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Response
 
 class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
-    var day = intent.getStringExtra("nowDay")
+//    var day = intent.getStringExtra("nowDay")
     override fun onClick(v: View?) {
         when(v){
             schedule_select_add->{
@@ -34,15 +34,15 @@ class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_halmate_select_date)
-        schedule_select_day.text = day
+//        schedule_select_day.text = day
 
         schedule_select_add.setOnClickListener(this)
 
-        var index = 1
+        var index = intent.getStringExtra("hal_idx")
 //        var recyclerView : RecyclerView = v.findViewById(R.id.halmate_board_list)
         networkService = ApplicationController.instance.networkService
         schedule_list.layoutManager = LinearLayoutManager(this)
-        var halmateScheduleResponse  = networkService.getHalmateSchedule(index.toString())
+        var halmateScheduleResponse  = networkService.getHalmateSchedule(index)
         halmateScheduleResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
             override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
                 if(response!!.isSuccessful){
