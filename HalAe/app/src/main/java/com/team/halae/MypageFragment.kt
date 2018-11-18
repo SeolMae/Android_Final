@@ -18,22 +18,22 @@ class MypageFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             mypage_settingBtn->{
-                var intent = Intent(activity, SettingActivity::class.java)
+                var intent = Intent(this.context, SettingActivity::class.java)
                 startActivity(intent)
             }
             mypage_BolCerti->{
                 floatDialog()
             }
             mypage_BolTime->{
-                var intent = Intent(activity, VolunteerTimeActivity::class.java)
+                var intent = Intent(this.context, VolunteerTimeActivity::class.java)
                 startActivity(intent)
             }
             mypage_myDonate->{
-                var intent = Intent(activity, MyDonateActivity::class.java)
+                var intent = Intent(this.context, MyDonateActivity::class.java)
                 startActivity(intent)
             }
             mypage_myActivity->{
-                var intent = Intent (activity, MyWorkActivity::class.java)
+                var intent = Intent (this.context, MyWorkActivity::class.java)
                 startActivity(intent)
             }
         }
