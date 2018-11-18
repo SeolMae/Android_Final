@@ -96,6 +96,7 @@ class HalmateScheduleFragment : Fragment() {
                     }
                 }
                 intent.putExtra("selectMonth",monthIndex.toString())
+                intent.putExtra("hal_idx",index.toString())
                 intent.putExtra("nowDay",s)
                 startActivity(intent)
             }

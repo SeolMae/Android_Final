@@ -38,11 +38,11 @@ class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
 
         schedule_select_add.setOnClickListener(this)
 
-        var index = 1
+        var index = intent.getStringExtra("hal_idx")
 //        var recyclerView : RecyclerView = v.findViewById(R.id.halmate_board_list)
         networkService = ApplicationController.instance.networkService
         schedule_list.layoutManager = LinearLayoutManager(this)
-        var halmateScheduleResponse  = networkService.getHalmateSchedule(index.toString())
+        var halmateScheduleResponse  = networkService.getHalmateSchedule(index)
         halmateScheduleResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
             override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
                 if(response!!.isSuccessful){
