@@ -27,7 +27,7 @@ class KakaoSignupActivity : Activity() {
 
     //private var networkService: NetworkService? = null
     private var networkService =ApplicationController.instance!!.networkService
-    var token : String? = null
+    var token ="0"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,6 +115,7 @@ class KakaoSignupActivity : Activity() {
 
     private fun redirectMainActivity() {
         var intent = Intent(this, MainTabActivity::class.java)
+        Log.e("너는 널이니?",token)
         intent.putExtra("token", token)
         startActivity(intent)
 
@@ -124,7 +125,7 @@ class KakaoSignupActivity : Activity() {
         bundle.putString("token", token)
         fragment.setArguments(bundle)
 */
-        startActivity(Intent(this, MainTabActivity::class.java))
+//        startActivity(Intent(this, MainTabActivity::class.java))
 
 
         finish()

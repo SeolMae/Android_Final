@@ -31,7 +31,8 @@ class HalmateBoardFragment : Fragment() {
 //        boardItems.add(BoardItem(R.drawable.sample, "제목입니다2","날짜입니다2"))
 //        boardItems.add(BoardItem(R.drawable.sample, "제목입니다3","날짜입니다3"))
 
-        var index = 1
+        val args = arguments
+        val index = args!!.getInt("hal_idx")
         var recyclerView : RecyclerView = v.findViewById(R.id.halmate_board_list)
         networkService = ApplicationController.instance.networkService
         requestManager = Glide.with(this)

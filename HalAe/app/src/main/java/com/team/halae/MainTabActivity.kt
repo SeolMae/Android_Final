@@ -13,7 +13,7 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 class MainTabActivity : AppCompatActivity(), View.OnClickListener{
-    var token : String? = null
+    var token ="0"
 
     override fun onClick(v: View?) {
         when(v){

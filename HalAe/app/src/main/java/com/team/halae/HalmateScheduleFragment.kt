@@ -42,6 +42,7 @@ class HalmateScheduleFragment : Fragment() {
 //    lateinit var scheduledDate : ArrayList<Int>
 
     var monthIndex = 0
+    var index = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -51,6 +52,9 @@ class HalmateScheduleFragment : Fragment() {
 //        materialCalendarView?.setOnDateChangeListener{view, year, month, dayOfMonth ->
 //            startActivity(Intent(context, HalmateScheduleSelectActivity::class.java))
 //        }
+
+        val args = arguments
+        index = args!!.getInt("hal_idx")
 
 
 
@@ -108,7 +112,6 @@ class HalmateScheduleFragment : Fragment() {
                 currentDay.clear()
                 var currentMonth = formatter.format(date)[0].toString() + formatter.format(date)[1].toString()
 
-                val index : Int = 7
                 networkService = ApplicationController.instance.networkService
                 var halmateScheduleInfoResponse  = networkService.getHalmateSchedule(index.toString())
                 halmateScheduleInfoResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {

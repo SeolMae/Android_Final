@@ -29,7 +29,8 @@ class HalmatePictureFragment : Fragment() {
         var recyclerView : RecyclerView = v.findViewById(R.id.halmate_picture_list)
 
 
-        var index = 1
+        val args = arguments
+        val index = args!!.getInt("hal_idx")
         networkService = ApplicationController.instance.networkService
         requestManager = Glide.with(this)
         recyclerView.layoutManager = GridLayoutManager(this.context, 3)
