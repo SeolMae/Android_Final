@@ -17,6 +17,7 @@ import retrofit2.Call
 import retrofit2.Response
 
 class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
+    var day = intent.getStringExtra("nowDay")
     override fun onClick(v: View?) {
         when(v){
             schedule_select_add->{
@@ -33,6 +34,7 @@ class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_halmate_select_date)
+        schedule_select_day.text = day
 
         schedule_select_add.setOnClickListener(this)
 
@@ -44,8 +46,17 @@ class HalmateScheduleSelectActivity: AppCompatActivity(), View.OnClickListener{
         halmateScheduleResponse.enqueue(object : retrofit2.Callback<HalmateScheuleInfoResponse> {
             override fun onResponse(call: Call<HalmateScheuleInfoResponse>?, response: Response<HalmateScheuleInfoResponse>?) {
                 if(response!!.isSuccessful){
-                    scheduleAdapter = ScheduleAdapter(scheduleItems,this@HalmateScheduleSelectActivity)
-                    schedule_list.adapter = scheduleAdapter
+                    var selectDay = intent.getStringExtra("selectDay")
+                    var selectMonth = intent.getStringExtra("selectMonth")
+                    if(selectDay == "empty"){
+                        Log.e("스케쥴업써!","!!")
+                    }
+                    else{
+                        scheduleItems = response.body().data[selectMonth.toInt()].mon_sch[selectDay.toInt()].sch
+                        scheduleAdapter = ScheduleAdapter(scheduleItems,this@HalmateScheduleSelectActivity)
+                        schedule_list.adapter = scheduleAdapter
+                    }
+
                     Log.e("안녕",response.body().message)
                 }
             }

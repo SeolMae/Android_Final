@@ -50,7 +50,9 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_tab)
 
-        token = getIntent().getStringExtra("token1")
+        token = getIntent().getStringExtra("token")
+
+        Log.v("tabtoken", token)
 
 //        addFragment(HalmateFragment())
 
@@ -71,6 +73,10 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     fun addFragment(fragment: Fragment){
+        var fragment : Fragment = MainFragment()
+        var bundle : Bundle = Bundle()
+        bundle.putString("token", token)
+        fragment!!.arguments = bundle
         val fm = supportFragmentManager
         val transaction = fm.beginTransaction()
         transaction.add(R.id.main_frame, fragment)

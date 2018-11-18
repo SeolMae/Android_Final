@@ -33,6 +33,11 @@ interface NetworkService {
             @Path("index") index : String
     ) : retrofit2.Call<HalmateGroupResponse>
 
+    @POST("usr/schedule")
+    fun postUserSchedule(
+            @Header("token") token : String,
+            @Body userSchedulePostData : UserSchedulePostData
+    ) : retrofit2.Call<UserScheduleResponse>
 
     //---------고운통신부분
 

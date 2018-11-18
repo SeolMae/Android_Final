@@ -29,8 +29,10 @@ class ScheduleAdapter( var scheduleItems : ArrayList<HalmateScheduleDataSCH>, va
 
 
             val intent : Intent = Intent(context, HalmateScheduleDetailActivity::class.java)
-//            intent.putExtra("profileImage",kakaoItems[position].profile)
-//            intent.putExtra("chattingName",kakaoItems[position].name)
+            intent.putExtra("userName",scheduleItems[position].usr_name)
+            intent.putExtra("startTime",scheduleItems[position].starttime)
+            intent.putExtra("endTime",scheduleItems[position].endtime)
+
             context.startActivity(intent)
         }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:background="#ffffff"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -40,6 +41,7 @@
             android:src="@drawable/halmate_schedule_person"/>
 
         <TextView
+            android:id="@+id/schedule_usr_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="양시연"
@@ -93,6 +95,7 @@
                 android:layout_marginLeft="17dp"/>
 
             <TextView
+                android:id="@+id/schedule_starttime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/volunteer_start_text"
@@ -129,6 +132,7 @@
                 android:layout_marginLeft="17dp"/>
 
             <TextView
+                android:id="@+id/schedule_endtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/volunteer_end_text"
