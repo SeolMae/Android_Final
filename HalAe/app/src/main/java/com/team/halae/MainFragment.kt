@@ -237,7 +237,8 @@ class MainFragment : Fragment(), View.OnClickListener{
 
         //token = getIntent().getStringExtra("token")
         Log.v("tokenbabo", token)
-        token=arguments!!.getString("token")
+        //token=arguments!!.getString("token")
+        token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6OTI3MzA0MjIyLCJpYXQiOjE1NDI1MzExMTYsImV4cCI6MTU0NTEyMzExNn0.YYMKQjfGno9K-p0UgHXtQn3983fPPh4KB5unI286GN4"
 
 
         val getUsrHalResponse = networkService!!.getUsrHalList(token)

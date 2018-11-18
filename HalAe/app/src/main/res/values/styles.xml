@@ -27,7 +27,7 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <style name="alignspinner" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="alignspinner" >
         <!-- Customize your theme here. -->
         <item name="android:background">@drawable/spinner_style_custom</item>
         <item name="android:textColor">#000000</item>

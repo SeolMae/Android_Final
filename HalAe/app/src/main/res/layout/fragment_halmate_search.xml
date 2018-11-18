@@ -75,7 +75,8 @@
                 android:layout_height="30dp"
                 style="@style/alignspinner"
                 android:spinnerMode="dropdown"
-                />
+                >
+            </Spinner>
 
             <Spinner
                 android:id="@+id/search_spinner_gender"

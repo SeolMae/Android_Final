@@ -52,7 +52,7 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
 
         token = getIntent().getStringExtra("token")
 
-        Log.v("tabtoken", token)
+        //Log.v("tabtoken", token)
 
 //        addFragment(HalmateFragment())
 
