@@ -26,5 +26,15 @@ class Login1Activity : AppCompatActivity() {
             startActivity(intent)
 
         }
+
+        login1_man.setOnClickListener{
+            login1_man.setBackgroundColor(0x9ce3ff)
+            login1_woman.setBackgroundColor(0xffffff)
+        }
+
+        login1_woman.setOnClickListener{
+            login1_man.setBackgroundColor(0xffffff)
+            login1_woman.setBackgroundColor(0x9ce3ff)
+        }
     }
 }

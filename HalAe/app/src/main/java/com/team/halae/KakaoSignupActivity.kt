@@ -123,9 +123,9 @@ class KakaoSignupActivity : Activity() {
         var bundle : Bundle = Bundle()
         bundle.putString("token", token)
         fragment.setArguments(bundle)
-*/
-        startActivity(Intent(this, MainTabActivity::class.java))
 
+        startActivity(Intent(this, MainTabActivity::class.java))
+*/
 
         finish()
     }

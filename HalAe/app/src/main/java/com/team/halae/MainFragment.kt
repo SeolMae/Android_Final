@@ -20,7 +20,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.content.pm.PackageManager
 import android.support.v4.app.FragmentManager
+import android.widget.ImageView
 
+
+var returnFlag : Int = 0
 
 class MainFragment : Fragment(), View.OnClickListener{
     override fun onClick(v: View?) {
@@ -46,6 +49,7 @@ class MainFragment : Fragment(), View.OnClickListener{
         transaction.commit()
     }
 
+
     var token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6OTI3MzA0MjIyLCJpYXQiOjE1NDE2Njk4ODYsImV4cCI6MTU0NDI2MTg4Nn0.SD5FN00X_9pTl2SQ8eZov3Hg6CJ5k9VL9WwqYVnVzwA"
     private var networkService: NetworkService? = null
     private var requestManager: RequestManager? = null
@@ -53,6 +57,9 @@ class MainFragment : Fragment(), View.OnClickListener{
     private var myHalLists : RecyclerView? = null
     private var adapter : HalAdapter? = null
     private var myHalDatas : ArrayList<UsrHalData>? = null
+
+    private var recommedPic1 : ImageView? = null
+    private var recommedPic2 : ImageView? = null
 
     var board_idx : Int? = null
     var board_idx2 : Int? = null
@@ -68,6 +75,9 @@ class MainFragment : Fragment(), View.OnClickListener{
         val v= inflater.inflate(R.layout.fragment_main, container, false)
 
         myHalLists = v.findViewById(R.id.main_HalMate)
+        recommedPic1 = v.findViewById(R.id.recommedPic1)
+        recommedPic2 = v.findViewById(R.id.recommedPic2)
+
         /*
         networkService = ApplicationController.instance!!.networkService
         requestManager = Glide.with(this)
@@ -237,7 +247,10 @@ class MainFragment : Fragment(), View.OnClickListener{
 
         //token = getIntent().getStringExtra("token")
         Log.v("tokenbabo", token)
-        token=arguments!!.getString("token")
+        if(returnFlag == 0) {
+            token = arguments!!.getString("token")
+            returnFlag++
+        }
 
 
         val getUsrHalResponse = networkService!!.getUsrHalList(token)
@@ -347,12 +360,12 @@ class MainFragment : Fragment(), View.OnClickListener{
 
 
 
-        recommedPic1.setOnClickListener{
+        recommedPic1!!.setOnClickListener{
             var intent = Intent(activity, BoardDetailActivity::class.java)
             intent.putExtra("board_idx",board_idx)
             startActivity(intent)
         }
-        recommedPic2.setOnClickListener{
+        recommedPic2!!.setOnClickListener{
             var intent = Intent(activity, BoardDetailActivity::class.java)
             intent.putExtra("board_idx",board_idx2)
             startActivity(intent)

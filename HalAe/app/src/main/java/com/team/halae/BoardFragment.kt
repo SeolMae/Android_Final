@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_board.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,8 +33,11 @@ class BoardFragment : Fragment(), View.OnClickListener {
     private var boardLists : RecyclerView? = null
     private var adapter : PostAdapter? = null
     private var boardDatas : ArrayList<BoardData>? = null
+    private var board_addPost : ImageButton? =null
+
 
     override fun onClick(v: View?) {
+
 
     }
 
@@ -56,7 +60,9 @@ class BoardFragment : Fragment(), View.OnClickListener {
         boardList = v.findViewById(R.id.board_list) as RecyclerView
         boardList!!.layoutManager = LinearLayoutManager(this.context)
 
-        board_addPost.setOnClickListener{
+        board_addPost = v.findViewById(R.id.board_addPost) as ImageButton
+
+        board_addPost!!.setOnClickListener{
             var intent = Intent(this.context, BoardWriteActivity::class.java)
             startActivity(intent)
         }

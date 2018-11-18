@@ -31,6 +31,7 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
             main_sns_tab->{
                 clearSelected()
                 main_sns_tab.isSelected = true
+                replaceFragment(BoardFragment())
             }
             main_donate_tab->{
                 clearSelected()
