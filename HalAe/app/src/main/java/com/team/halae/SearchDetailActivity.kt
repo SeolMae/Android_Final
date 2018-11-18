@@ -20,6 +20,8 @@ class SearchDetailActivity : AppCompatActivity(), View.OnClickListener {
     private var horizonmanager1 : LinearLayoutManager? = null
     private var horizonmanager2 : LinearLayoutManager? = null
 
+    private var networkservice : NetworkService? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_detail)
@@ -34,11 +36,72 @@ class SearchDetailActivity : AppCompatActivity(), View.OnClickListener {
 
         volunteerList = ArrayList<SearchVolunteerItem>()
 
-/*        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "최고운"))
+        //var posthalmatefilering = networkservice!!.getHalmateInformation()
+        /*
+        Log.v("sylee", filteringrequestbody.toString())
+
+        posthalmatefilering.enqueue(object : retrofit2.Callback<FilteringPostResponse> {
+            override fun onResponse(call: Call<FilteringPostResponse>?, response: Response<FilteringPostResponse>?) {
+
+                Log.v("sylee",response!!.message().toString())
+                if(response!!.isSuccessful){
+                    Log.v("sylee","halmate search isSuccessful")
+
+                    if(response.body().message.equals("get halmate schedule information Success")){
+                        Log.v("sylee", response.body().result.toString())
+
+                        setResultBody.clear()
+
+                        var sethalname : String
+                        var sethalinterest : String = ""
+
+                        for(i in 0..(response.body().result.size)-1){
+
+                            if(response.body().result[i].hal_gender == 0){
+                                sethalname = response.body().result[i].hal_name + " 할아버지"
+                            }else{
+                                sethalname = response.body().result[i].hal_name + " 할머니"
+                            }
+
+                            sethalinterest = ""
+
+                            for(j in 0..(response.body().result[i].interestArry.size-1)){
+                                sethalinterest += "#" + response.body().result[i].interestArry[j]
+                            }
+
+
+                            var tempSearchItem : SearchItem
+                                    = SearchItem(response.body().result[i].hal_img, sethalname,
+                                    response.body().result[i].hal_age, response.body().result[i].hal_address, sethalinterest)
+
+                            Log.v("sylee", sethalinterest)
+                            setResultBody.add(tempSearchItem)
+
+                        }
+
+                        searchAdapter = SearchAdapter(setResultBody!!, mGlideRequestManager)
+                        searchRecyclerView!!.adapter = searchAdapter
+                        searchAdapter!!.setOnItemClickListner(this@HalmateSearchFragment)
+
+                    }
+                }
+            }
+
+
+            override fun onFailure(call: Call<FilteringPostResponse>?, t: Throwable?) {
+
+                Log.v("sylee",filteringrequestbody.toString())
+                Log.v("sylee", t.toString())
+
+            }
+
+        })*/
+
+        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "최고운"))
         volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "이선영"))
         volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "신예지"))
         volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "이승민"))
-        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "박선희"))*/
+        volunteerList!!.add(SearchVolunteerItem(R.drawable.sample, "박선희"))
 
         volunteerAdapter = SearchVolunteerAdapter(volunteerList!!)
 

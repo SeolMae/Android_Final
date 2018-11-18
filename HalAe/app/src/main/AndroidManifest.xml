@@ -41,6 +41,11 @@
         <activity android:name=".LoginActivity3" />
         <activity android:name=".LoginSearchActivity1" />
         <activity android:name=".LoginSearchActivity2" />
+        <activity android:name=".DonateDatailActivity" />
+        <activity android:name=".SearchDetailActivity" />
+        <activity android:name=".SearchMagnifyingActivity" />
+
+
         <!--<activity android:name=".SplashActivity"/>-->
 
         <meta-data

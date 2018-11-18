@@ -71,27 +71,24 @@
 
             <Spinner
                 android:id="@+id/search_spinner_location"
-                style="@style/alignspinner"
                 android:layout_width="115dp"
                 android:layout_height="30dp"
+                style="@style/alignspinner"
                 android:spinnerMode="dropdown"
-                android:entries="@array/위치"
                 />
+
             <Spinner
                 android:id="@+id/search_spinner_gender"
-                style="@style/alignspinner"
                 android:layout_width="115dp"
                 android:layout_height="30dp"
+                style="@style/alignspinner"
                 android:spinnerMode="dropdown"
-                android:entries="@array/성별"
                 />
             <Spinner
                 android:id="@+id/search_spinner_interest"
-                style="@style/alignspinner"
                 android:layout_width="115dp"
+                style="@style/alignspinner"
                 android:layout_height="30dp"
-                android:spinnerMode="dropdown"
-                android:entries="@array/관심분야"
                 />
 
         </LinearLayout>

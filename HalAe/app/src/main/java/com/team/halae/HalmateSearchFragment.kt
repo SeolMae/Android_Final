@@ -1,7 +1,9 @@
 package com.team.halae
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -41,8 +43,10 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
     lateinit var setResultBody : ArrayList<SearchItem>
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        var locationstr : Array<String> = resources.getStringArray(R.array.위치)
 
         networkService = ApplicationController.instance!!.networkService
 
@@ -61,6 +65,7 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
         var locationAdapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.위치))
         locationSpinner!!.adapter = locationAdapter
         locationSpinner!!.setSelection(0)
+        //locationSpinner!!.
 
         var genderAdapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.성별))
         genderSpinner!!.adapter = genderAdapter
@@ -100,6 +105,7 @@ class HalmateSearchFragment() : Fragment(), AdapterView.OnItemSelectedListener, 
                 location = locationSpinner!!.selectedItem.toString()
                 if(location == "위치") filteringrequestbody!!.hal_address = "위치"
                 filteringrequestbody!!.hal_address = location
+
             }
             genderSpinner -> {
                 Log.v("sylee", "gender spinner test")

@@ -3,4 +3,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="location_spinner_hint">위치</string>
+    <string name="gender_spinner_hint">성별</string>
+    <string name="interest_spinner_hint">관심분야</string>
+
+
 </resources>
