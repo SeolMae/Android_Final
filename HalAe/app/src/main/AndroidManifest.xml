@@ -24,6 +24,7 @@
         <activity android:name=".VolunteerTimeActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".MyDonateActivity" />
+        <activity android:name=".SearchMagnifyingActivity"/>
 
         <activity android:name=".MyWorkActivity" />
         <activity android:name=".BoardActivity" />

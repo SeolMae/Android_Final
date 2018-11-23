@@ -42,6 +42,12 @@ class MainTabActivity : AppCompatActivity(), View.OnClickListener{
                 clearSelected()
                 main_mypage_tab.isSelected = true
 
+                /*
+                val intent = Intent(this, MypageActivity::class.java)
+                intent.putExtra("token", token)
+                startActivity(intent)
+                */
+
                 replaceFragment(MypageFragment())
             }
         }

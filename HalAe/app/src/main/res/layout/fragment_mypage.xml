@@ -50,7 +50,7 @@
             android:textColor="#606060"
             android:id="@+id/mypage_userName"
             android:layout_toRightOf="@+id/mypage_userImg"
-            android:text="최고운"
+            android:text="신예지"
             android:textSize="20dp"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"

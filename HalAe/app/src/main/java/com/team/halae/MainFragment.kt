@@ -286,6 +286,8 @@ class MainFragment : Fragment(), View.OnClickListener{
             override fun onResponse(call: Call<RecommendDonationResponse>?, response: Response<RecommendDonationResponse>?) {
                 if(response!!.isSuccessful){
                     if(response!!.body().message == "Successfully get recommend_donate"){
+
+                        DoWith.setText(response!!.body().usr_name+"님, 함께 해주세요!")
                         requestManager!!.load(response!!.body().data[0].don_img).into(DoWithPic1)
                         DoWithTopic1.setText(response!!.body().data[0].don_title)
                         DoHalName1.setText(response!!.body().data[0].hal_name + " 할머니")
@@ -319,9 +321,11 @@ class MainFragment : Fragment(), View.OnClickListener{
             override fun onResponse(call: Call<RecommendVolResponse>?, response: Response<RecommendVolResponse>?) {
                 if(response!!.isSuccessful){
                     if(response!!.body().message == "Successfully get recommend_board"){
+                        recommendBol.setText(response!!.body().usr_name+"님, 이런 봉사 어떠세요?")
                         requestManager!!.load(response!!.body().data[0].board_img).into(recommedPic1)
                         recommedTitle1.setText(response!!.body().data[0].board_title)
                         board_idx=response!!.body().data[0].board_idx
+
 
                         requestManager!!.load(response!!.body().data[0].board_img).into(recommedPic2)
                         recommedTitle2.setText(response!!.body().data[0].board_title)
@@ -349,10 +353,10 @@ class MainFragment : Fragment(), View.OnClickListener{
                         hal_idx = response!!.body().data[0].hal_idx
 
                         requestManager!!.load(response!!.body().data[1].hal_img).into(recoHalImg2)
-                        HalAge2.setText(response!!.body().data[1].hal_name + " 할머니, " + response!!.body().data[0].hal_age.toString()+"세")
+                        HalAge2.setText(response!!.body().data[1].hal_name + " 할머니, " + response!!.body().data[1].hal_age.toString()+"세")
                         HalAdd2.setText(response!!.body().data[1].hal_address)
                         HalHob2.setText("#" + response!!.body().data[1].inter_list[0] + " #" + response!!.body().data[1].inter_list[1])
-                        hal_idx2 = response!!.body().data[0].hal_idx
+                        hal_idx2 = response!!.body().data[1].hal_idx
                     }
                 }
             }
